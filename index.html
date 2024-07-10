@@ -10,6 +10,7 @@ Have fun creating your portfolio on this template!!! -->
 
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -104,16 +105,21 @@ Have fun creating your portfolio on this template!!! -->
   </head>
   <body>
     <!-- Hero Section -->
-    <div id="hero">
-      <section class="container">
-        <h1 class="hero-title">
-          Hi, 
-          <!-- <br /> -->
-          my name is <span class="text-color-main name">Logan Bolton</span>
-        </h1>
-        <p class="hero-cta">
-          <a class="cta-btn cta-btn--hero" href="#about">Get in touch</a>
-        </p>
+    <div id="hero" class="container">
+      <section class="mainPhotoContainer">
+        <div class="mainText">
+          <h1 class="hero-title">
+            Hi, 
+            <!-- <br /> -->
+            my name is <span class="text-color-main name">Logan Bolton</span>
+          </h1>
+          <p class="hero-cta">
+            <a class="cta-btn cta-btn--hero" href="#about">Get in touch</a>
+          </p>
+        </div>
+        <div>
+          <img class="headshot" src="./assets/images/headshot.jpeg" alt="Image" />
+        </div>
       </section>
       <a href="#about" class="scroll-down-link" aria-label="scroll-down">
         <div class="scroll-down"></div
@@ -124,21 +130,17 @@ Have fun creating your portfolio on this template!!! -->
     <!-- About Section -->
     <section id="about">
       <div class="container">
-        <h2 class="section-title">About Me</h2>
         <div class="row about-wrapper">
           <div class="about-wrapper__image">
-            <img
-              class="img-fluid"
-              src="./assets/profile.png"
-              alt="Profile Image"
-              width="450"
-              height="350"
-            />
+            <div class="cropped-image">
+              <img class="img-fluid altBioImage" src="assets/images/servers.jpg" alt="Profile Image" />
+            </div>
           </div>
           <div class="about-wrapper__info">
+            <h2 class="section-title">About Me</h2>
             <p class="about-wrapper__info-text">
               I am a junior Computer Science major at Auburn University who's passionate about machine learning and web development.
-              I have experience with Python, JavaScript, HTML/CSS and C#. 
+              I have experience with Python, JavaScript, HTML/CSS, and C#.
             </p>
             <p class="about-wrapper__info-text">
               I'm currently seeking a Summer 2025 internship in machine learning or data science.
@@ -150,23 +152,21 @@ Have fun creating your portfolio on this template!!! -->
         </div>
       </div>
     </section>
+    
     <!-- /END About Section -->
 
     <!--Projects Section-->
     <section id="projects">
       <div class="container">
         <div class="project-wrapper">
-          <h2 class="section-title dark-blue-text">Projects</h2>
+          <h2 class="section-title dark-blue-text">Research</h2>
 
           <!-- Each .row is a project -->
           <article class="row">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
+              <h3 class="project-wrapper__text-title">Paper - "LLMs are Blind"</h3>
               <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+                This paper examines the limitations of current vision-based language models, such as GPT-4 and Sonnet 3.5, in performing low-level vision tasks. Despite their high scores on numerous multimodal benchmarks, these models often fail on very basic cases. This raises a crucial question: are we evaluating these models accurately?
               </p>
               <div class="project-wrapper__text-btns">
                 <a
@@ -198,6 +198,7 @@ Have fun creating your portfolio on this template!!! -->
           </article>
           <!-- /END Project -->
 
+          <h2 class="section-title dark-blue-text">Projects</h2>
           <!-- Each .row is a project -->
           <article class="row">
             <div class="project-wrapper__text">

@@ -1,3 +1,28 @@
 .scroll-down {
     border: none;
 }
+
+.headshot {
+    border-radius: 2rem;
+    width: 20rem;
+}
+
+.mainPhotoContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.mainText {
+    padding-right: 5rem;
+    max-width: 50rem;
+}
+
+#hero {
+    display: flex;
+    justify-content: center;
+}
+
+.altBioImage {
+    border-radius: 4rem;
+}
