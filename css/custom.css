@@ -26,3 +26,17 @@
 .altBioImage {
     border-radius: 4rem;
 }
+
+.paper {
+    width: 50%;
+}
+
+.paperContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.paperContainer a {
+    display: flex;
+    justify-content: center;
+}

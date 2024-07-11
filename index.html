@@ -114,16 +114,16 @@ Have fun creating your portfolio on this template!!! -->
             my name is <span class="text-color-main name">Logan Bolton</span>
           </h1>
           <p class="hero-cta">
-            <a class="cta-btn cta-btn--hero" href="#about">Get in touch</a>
+            <a class="cta-btn cta-btn--hero" href="#contact">Get in touch</a>
           </p>
         </div>
         <div>
           <img class="headshot" src="./assets/images/headshot.jpeg" alt="Image" />
         </div>
       </section>
-      <a href="#about" class="scroll-down-link" aria-label="scroll-down">
+      <!-- <a href="#about" class="scroll-down-link" aria-label="scroll-down">
         <div class="scroll-down"></div
-      ></a>
+      ></a> -->
     </div>
     <!-- /END Hero Section -->
 
@@ -139,7 +139,7 @@ Have fun creating your portfolio on this template!!! -->
           <div class="about-wrapper__info">
             <h2 class="section-title">About Me</h2>
             <p class="about-wrapper__info-text">
-              I am a junior Computer Science major at Auburn University who's passionate about machine learning and web development.
+              I am a junior Computer Science major at Auburn University who is passionate about machine learning and web development.
               I have experience with Python, JavaScript, HTML/CSS, and C#.
             </p>
             <p class="about-wrapper__info-text">
@@ -164,33 +164,32 @@ Have fun creating your portfolio on this template!!! -->
           <!-- Each .row is a project -->
           <article class="row">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Paper - "LLMs are Blind"</h3>
+              <h3 class="project-wrapper__text-title">Paper - "Vision Language Models are Blind"</h3>
               <p class="project-wrapper__text-info">
-                This paper examines the limitations of current vision-based language models, such as GPT-4 and Sonnet 3.5, in performing low-level vision tasks. Despite their high scores on numerous multimodal benchmarks, these models often fail on very basic cases. This raises a crucial question: are we evaluating these models accurately?
+                This paper examines the limitations of current vision-based language models, such as GPT-4V and Sonnet 3.5, in performing low-level vision tasks. Despite their high scores on numerous multimodal benchmarks, these models often fail on very basic cases. This raises a crucial question: are we evaluating these models accurately?
               </p>
               <div class="project-wrapper__text-btns">
                 <a
-                  href="#"
+                  href="https://vlmsareblind.github.io/"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
+                  >View Webpage</a
                 >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
+                <a href="https://arxiv.org/pdf/2407.06581" target="_blank" class="cta-btn text-color-main"
+                  >PDF</a
                 >
               </div>
             </div>
 
-            <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
+            <div class="project-wrapper__image paperContainer">
+              <a href="https://vlmsareblind.github.io/" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded paper">
                   <img
-                    src="./assets/project.png"
+                    src="./assets/images/LLMsAreBlind.png"
                     class="img-fluid"
                     alt="Project Image"
-                    width="1366"
-                    height="767"
+                    width=20%;
                   />
                 </div>
               </a>
@@ -202,32 +201,30 @@ Have fun creating your portfolio on this template!!! -->
           <!-- Each .row is a project -->
           <article class="row">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
+              <h3 class="project-wrapper__text-title">Twitter Disaster Prediction Model</h3>
               <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+                Classified if tweets were referencing real world disasters or not using a fine tuned BERT model.
+                Achieved 83% accuracy and top 10% performance amongst thousands of competitors in a Kaggle competition.
               </p>
               <div class="project-wrapper__text-btns">
                 <a
-                  href="#"
+                  href="https://github.com/LoganBolton/NLP_Tweets"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
+                  >View Code</a
                 >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
+                <!-- <a href="#" target="_blank" class="cta-btn text-color-main"
                   >Source Code</a
-                >
+                > -->
               </div>
             </div>
 
             <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/LoganBolton/NLP_Tweets" target="_blank" rel="noopener noreferrer">
                 <div class="thumbnail rounded">
                   <img
-                    src="./assets/project.png"
+                    src="./assets/twitter.jpg"
                     class="img-fluid"
                     alt="Project Image"
                     width="1366"
@@ -242,32 +239,69 @@ Have fun creating your portfolio on this template!!! -->
           <!-- Each .row is a project -->
           <article class="row">
             <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Project Title</h3>
+              <h3 class="project-wrapper__text-title">Facial Detection Model</h3>
               <p class="project-wrapper__text-info">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Deleniti voluptas, sit nam perspiciatis tempore aspernatur ullam
-                necessitatibus impedit repellendus vero sed ipsa eos beatae ab
-                sint saepe nostrum! Enim, perferendis.
+                Developed a YOLOv5 model for facial recognition using a publicly 
+                available dataset of 1,000+ images resulting in a model that is able to quickly
+                recognize faces in real-time videos.
               </p>
               <div class="project-wrapper__text-btns">
                 <a
-                  href="#"
+                  href="https://github.com/LoganBolton/FacialDetection"
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >See Live</a
+                  >View Code</a
                 >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
+                <!-- <a href="#" target="_blank" class="cta-btn text-color-main"
                   >Source Code</a
-                >
+                > -->
               </div>
             </div>
 
             <div class="project-wrapper__image">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/LoganBolton/FacialDetection" target="_blank" rel="noopener noreferrer">
                 <div class="thumbnail rounded">
                   <img
-                    src="./assets/project.png"
+                    src="./assets/face.gif"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+          <!-- /END Project -->
+
+          <!-- Each .row is a project -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Neural Network from Scratch</h3>
+              <p class="project-wrapper__text-info">
+                Created a neural network from scratch using Python and Numpy without the use of modern libaries like Pytorch. 
+                The model was trained on the MNIST dataset and achieved 92% accuracy using only a shallow network.
+              </p>
+              <div class="project-wrapper__text-btns">
+                <a
+                  href="https://github.com/LoganBolton/NeuralNetworkFromScratch"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >View Code</a
+                >
+                <!-- <a href="#" target="_blank" class="cta-btn text-color-main"
+                  >Source Code</a
+                > -->
+              </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <a href="https://github.com/LoganBolton/NeuralNetworkFromScratch" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/mnist.png"
                     class="img-fluid"
                     alt="Project Image"
                     width="1366"
@@ -288,8 +322,9 @@ Have fun creating your portfolio on this template!!! -->
       <div class="container">
         <h2 class="section-title">Contact</h2>
         <div class="contact-wrapper">
-          <p class="contact-wrapper__text">[Put your call to action here]</p>
-          <a href="#" class="cta-btn cta-btn--resume">Call to Action</a>
+          <p class="contact-wrapper__text">Have a question or want to work together?<br/>Feel free to send me an email:</p>
+          <p class="contact-wrapper__text"><i class="fa-solid fa-envelope"></i>         loganbolton101@gmail.com</p>
+          <!-- <a href="#" class="cta-btn cta-btn--resume">Call to Action</a> -->
         </div>
       </div>
     </section>
@@ -298,36 +333,12 @@ Have fun creating your portfolio on this template!!! -->
     <!-- Footer Section -->
     <footer class="footer">
       <div class="container">
-        <a href="#hero" class="back-to-top" aria-label="go back to top">
+        <!-- <a href="#hero" class="back-to-top" aria-label="go back to top">
           <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a>
+        </a> -->
         <div class="social-links">
           <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="twitter"
-          >
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="instagram"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a
-            href="#!"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="codepen"
-          >
-            <i class="fa-brands fa-codepen"></i>
-          </a>
-          <a
-            href="#!"
+            href="https://www.linkedin.com/in/logan-bolton-5bba7921b/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="linkedin"
@@ -335,7 +346,7 @@ Have fun creating your portfolio on this template!!! -->
             <i class="fa-brands fa-linkedin"></i>
           </a>
           <a
-            href="#!"
+            href="https://github.com/LoganBolton"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="github"
@@ -344,15 +355,6 @@ Have fun creating your portfolio on this template!!! -->
           </a>
         </div>
         <hr />
-        <p class="footer__text">
-          &copy; <span id="year"></span> - Template by
-          <a
-            href="https://github.com/AnilSeervi"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Anil Seervi</a
-          >. <br />Made with &hearts;
-        </p>
       </div>
     </footer>
     <!-- END Footer Section -->
