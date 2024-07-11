@@ -45,7 +45,7 @@ html {
     background-color: white;
 }
 
-body {
+/* body {
     overflow: hidden;
 } 
 
@@ -53,4 +53,4 @@ body {
     height: 100vh;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-}
+} */
