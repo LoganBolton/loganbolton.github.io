@@ -44,3 +44,13 @@
 html {
     background-color: white;
 }
+
+body {
+    overflow: hidden;
+} 
+
+#container {
+    height: 100vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
