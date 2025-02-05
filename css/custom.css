@@ -54,3 +54,20 @@ html {
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
 } */
+
+.asi {
+    border-radius: 2rem;
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+@media (max-width: 700px) {
+    .info-container {
+        display: block;
+    }
+}
+

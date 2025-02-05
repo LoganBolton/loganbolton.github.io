@@ -24,7 +24,7 @@ Have fun creating your portfolio on this template!!! -->
     <title>Logan Bolton | Portfolio</title>
 
     <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-    <meta name="keywords" content="[username], [name], skill" />
+    <meta name="keywords" content="[Logan Bolton], [septisum], ai" />
 
     <!-- Improve your SEO by adding a small descrption of you -->
     <meta name="description" content="Logan Bolton | Portfolio" />
@@ -38,17 +38,17 @@ Have fun creating your portfolio on this template!!! -->
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <!-- Fill content with the URL of this portfolio you'll host -->
-    <meta property="og:url" content="https://devfolio.js.org/" />
+    <!-- <meta property="og:url" content="https://devfolio.js.org/" /> -->
     <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
     <meta property="og:title" content="Logan Bolton | Portfolio" />
     <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
     <meta property="og:description" content="Made using DevFolio Template" />
     <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
       so that a thumbnail image of your portfolio is shown while shared on other platform -->
-    <meta
+    <!-- <meta
       property="og:image"
       content="https://devfolio.js.org/assets/devfolio.png"
-    />
+    /> -->
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -74,13 +74,16 @@ Have fun creating your portfolio on this template!!! -->
     <link rel="stylesheet" href="./css/custom.css" />
 
     <!-- FontAwesome Icons link -->
-    <link
+    <!-- <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
       integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    />
+    /> -->
+
+    <script src="https://kit.fontawesome.com/5cd1dd5176.js" crossorigin="anonymous"></script>
+
     <script defer src="./javascript/scrollreveal.min.js"></script>
     <script
       defer
@@ -141,12 +144,12 @@ Have fun creating your portfolio on this template!!! -->
           <div class="about-wrapper__info">
             <h2 class="section-title">About Me</h2>
             <p class="about-wrapper__info-text">
-              I am a junior Computer Science major at Auburn University who is passionate about machine learning and web development.
-              I have experience with Python, JavaScript, HTML/CSS, and C#.
+              I am a Senior majoring in Computer Science at Auburn University. I am passionate about AI/ML and improving our understanding of the world through science.
+              I have experience with Python, SQL, JavaScript, C# and HTML/CSS.
             </p>
-            <p class="about-wrapper__info-text">
+            <!-- <p class="about-wrapper__info-text">
               I'm currently seeking a Summer 2025 internship in machine learning or data science.
-            </p>
+            </p> -->
             <span class="about-wrapper__cta">
               <a href="assets/Logan-Bolton-Resume.pdf" class="cta-btn cta-btn--resume">View Resume</a>
             </span>
@@ -168,7 +171,7 @@ Have fun creating your portfolio on this template!!! -->
             <div class="project-wrapper__text">
               <h3 class="project-wrapper__text-title">Paper - "Vision Language Models are Blind"</h3>
               <p class="project-wrapper__text-info">
-                This paper examines the limitations of current vision-based language models, such as GPT-4V and Sonnet 3.5, in performing low-level vision tasks. Despite their high scores on numerous multimodal benchmarks, these models often fail on very basic cases. This raises a crucial question: are we evaluating these models accurately?
+                This paper examines the limitations of current vision-based language models, such as GPT-4o and Sonnet 3.5, in performing low-level vision tasks. Despite their high scores on numerous multimodal benchmarks, these models often fail on very basic cases. This raises the question: are we evaluating these models accurately?
               </p>
               <div class="project-wrapper__text-btns">
                 <a
@@ -176,7 +179,7 @@ Have fun creating your portfolio on this template!!! -->
                   target="_blank"
                   rel="noopener noreferrer"
                   class="cta-btn cta-btn--hero cta-btn--projects"
-                  >View Webpage</a
+                  >Webpage</a
                 >
                 <a href="https://arxiv.org/pdf/2407.06581" target="_blank" class="cta-btn text-color-main"
                   >PDF</a
@@ -198,6 +201,41 @@ Have fun creating your portfolio on this template!!! -->
             </div>
           </article>
           <!-- /END Project -->
+          <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Paper - "Highlighted Chain of Thought"</h3>
+              <p class="project-wrapper__text-info">
+                This paper explores how allowing LLMs to highlight their chain of thought to visually link information in the question and answer can increase LLM accuracy while also improving user experience. 
+                
+                (arxiv preprint coming soon)
+              </p>
+              <!-- <div class="project-wrapper__text-btns">
+                <a
+                  href="https://vlmsareblind.github.io/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >View Webpage</a
+                >
+                <a href="https://arxiv.org/pdf/2407.06581" target="_blank" class="cta-btn text-color-main"
+                  >PDF</a
+                >
+              </div> -->
+            </div>
+
+            <div class="project-wrapper__image paperContainer">
+              <a href="" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded paper">
+                  <img
+                    src="./assets/images/hot.png"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width=20%;
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
 
           <h2 class="section-title dark-blue-text">Projects</h2>
           <!-- Each .row is a project -->
@@ -323,10 +361,18 @@ Have fun creating your portfolio on this template!!! -->
     <section id="contact">
       <div class="container">
         <h2 class="section-title">Contact</h2>
-        <div class="contact-wrapper">
-          <p class="contact-wrapper__text">Have a question or want to work together?<br/>Feel free to send me an email:</p>
-          <p class="contact-wrapper__text"><i class="fa-solid fa-envelope"></i>         loganbolton101@gmail.com</p>
-          <!-- <a href="#" class="cta-btn cta-btn--resume">Call to Action</a> -->
+        <div class="info-container">
+          <div class="thumbnail rounded">
+            <img class="asi" src="./assets/images/asi.jpg" alt="Image" width=90%;
+            />
+          </div>
+          <div class="contact-wrapper">
+            <p class="contact-wrapper__text">Have a question or want to work together? Feel free to send me an email:</p>
+            <!-- <p class="contact-wrapper__text"><i class="fa-solid fa-envelope"></i>         loganbolton101@gmail.com</p> -->
+            <p class="contact-wrapper__text">loganbolton101@gmail.com</p>
+            
+            <!-- <a href="#" class="cta-btn cta-btn--resume">Call to Action</a> -->
+          </div>
         </div>
       </div>
     </section>
@@ -347,6 +393,7 @@ Have fun creating your portfolio on this template!!! -->
           >
             <i class="fa-brands fa-linkedin"></i>
           </a>
+
           <a
             href="https://github.com/LoganBolton"
             target="_blank"
@@ -355,6 +402,15 @@ Have fun creating your portfolio on this template!!! -->
           >
             <i class="fa-brands fa-github"></i>
           </a>
+
+          <a
+          href="https://x.com/septisum"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="github"
+        >
+          <i class="fa-brands fa-x-twitter"></i>
+        </a>
         </div>
         <hr />
       </div>
