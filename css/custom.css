@@ -38,7 +38,7 @@
 
 .paperContainer a {
     display: flex;
-    justify-content: center;
+    justify-content: right;
 }
 
 html {
@@ -155,3 +155,102 @@ html {
     font-size: 1.2rem;
   }
 }
+
+
+
+/* Papers Section - Centered Layout */
+.paper-row {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto 8rem auto;
+  padding: 0 1.5rem;
+}
+
+/* Right-justify paper images with smaller width */
+.paper-row .paperContainer {
+  margin-left: auto;
+  margin-right: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Responsive adjustments for papers */
+@media (max-width: 56.25em) {
+  .paper-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .paper-row .project-wrapper__text {
+    text-align: left;
+  }
+  
+  .paper-row .paperContainer {
+    order: -1; /* Move image above text on mobile */
+  }
+}
+
+
+/* Make all paper images bigger */
+.paper {
+    width: 70%; /* Increase from 50% to 70% */
+    height: auto; /* Maintain aspect ratio */
+    min-height: 200px; /* Ensure minimum height */
+}
+
+/* Optional: Adjust the paper container for better fit */
+.paperContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Adjust grid layout to accommodate bigger images */
+.paper-row {
+    grid-template-columns: 1.1fr 0.9fr; /* Slightly more balanced */
+    gap: 3rem; /* Increase gap for breathing room */
+    max-width: 1000px; /* Increase container width */
+}
+
+/* Make sure images scale properly */
+.paper-row .project-wrapper__image .thumbnail .img-fluid {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Ensure image fits nicely */
+}
+
+/* Responsive adjustments */
+@media (max-width: 56.25em) {
+    .paper {
+        width: 85%; /* Even bigger on mobile since it stacks */
+        min-height: 150px;
+    }
+    
+    .paper-row {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        max-width: 100%;
+        gap: 2rem;
+    }
+    
+    .paper-row .project-wrapper__text {
+        text-align: left;
+        order: 1; /* Text appears first */
+    }
+    
+    .paper-row .paperContainer {
+        order: 2; /* Image appears second (below text) */
+        justify-content: center; /* Center image on mobile */
+    }
+
+    .paperContainer a {
+        justify-content: center;
+    }
+}
+
+
+
