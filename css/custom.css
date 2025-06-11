@@ -11,10 +11,15 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    align-items: center;
+}
+
+.mainPhotoContainer h1{
+    margin: 0 !important;
 }
 
 .mainText {
-    padding-right: 5rem;
+    padding-right: 4rem;
     max-width: 50rem;
 }
 
@@ -249,8 +254,15 @@ html {
 
     .paperContainer a {
         justify-content: center;
+        width: 85%;
+
     }
 }
 
 
 
+html, body {
+    /* background-colo/r: #333; Match footer */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    max-width: 100%;
+}

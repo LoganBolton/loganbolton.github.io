@@ -33,7 +33,8 @@ Have fun creating your portfolio on this template!!! -->
     <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" />
 
     <!-- Add your primary-theme color for the value of content -->
-    <meta name="theme-color" content="#36d1dc" />
+    <meta name="theme-color" content="#ffffff" />
+
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
@@ -118,9 +119,9 @@ Have fun creating your portfolio on this template!!! -->
             <!-- <br /> -->
             my name is <span class="text-color-main name">Logan Bolton</span>
           </h1>
-          <p class="hero-cta">
+          <!-- <p class="hero-cta">
             <a class="cta-btn cta-btn--hero" href="#contact">Get in touch</a>
-          </p>
+          </p> -->
         </div>
         <div class="faceContainer">
           <!-- <img class="headshot" src="./assets/images/headshot.jpeg" alt="Image" /> -->
@@ -346,9 +347,42 @@ Have fun creating your portfolio on this template!!! -->
             </div>
           </article> -->
           <!-- /END Project -->
-
-          <!-- Each .row is a project -->
           <article class="row">
+            <div class="project-wrapper__text">
+              <h3 class="project-wrapper__text-title">Reverse Engineering Information from LLM Attention Values</h3>
+              <p class="project-wrapper__text-info">
+                For the final project of my graph theory class I trained a model to reconstruct the adjacency matrix of a graph based off the attention values of a small LLM. This project demonstrates an example of how the attention map patterns of LLMs can be used to help interpret the inner workings of language models. 
+              </p>
+              <div class="project-wrapper__text-btns">
+                <a
+                  href="https://github.com/LoganBolton/Reverse-Attention-Graphs"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="cta-btn cta-btn--hero cta-btn--projects"
+                  >View Code</a
+                >
+                <a href="assets/graph_project.pdf" target="_blank" class="cta-btn text-color-main"
+                  >Project Report</a
+                >
+              </div>
+            </div>
+
+            <div class="project-wrapper__image">
+              <a href="assets/graph_project.pdf" target="_blank" rel="noopener noreferrer">
+                <div class="thumbnail rounded">
+                  <img
+                    src="./assets/images/attention.png"
+                    class="img-fluid"
+                    alt="Project Image"
+                    width="1366"
+                    height="767"
+                  />
+                </div>
+              </a>
+            </div>
+          </article>
+          <!-- Each .row is a project -->
+          <!-- <article class="row">
             <div class="project-wrapper__text">
               <h3 class="project-wrapper__text-title">Facial Detection Model</h3>
               <p class="project-wrapper__text-info">
@@ -364,9 +398,8 @@ Have fun creating your portfolio on this template!!! -->
                   class="cta-btn cta-btn--hero cta-btn--projects"
                   >View Code</a
                 >
-                <!-- <a href="#" target="_blank" class="cta-btn text-color-main"
+                <a href="#" target="_blank" class="cta-btn text-color-main"
                   >Source Code</a
-                > -->
               </div>
             </div>
 
@@ -383,7 +416,7 @@ Have fun creating your portfolio on this template!!! -->
                 </div>
               </a>
             </div>
-          </article>
+          </article> -->
           <!-- /END Project -->
 
           <!-- Each .row is a project -->
@@ -392,7 +425,7 @@ Have fun creating your portfolio on this template!!! -->
               <h3 class="project-wrapper__text-title">Neural Network from Scratch</h3>
               <p class="project-wrapper__text-info">
                 Created a neural network from scratch using Python and Numpy without the use of modern libraries like PyTorch. 
-                The model was trained on the MNIST dataset and achieved 92% accuracy using only a shallow network.
+                Trained an MLP on the MNIST dataset and achieved 92% accuracy.
               </p>
               <div class="project-wrapper__text-btns">
                 <a
