@@ -459,3 +459,36 @@ html, body {
 .proj {
     margin-bottom: 10rem !important;
 }
+
+@media (max-width: 768px) {
+  .row {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-columns: unset !important;
+  }
+  
+  /* Title comes first */
+  .project-wrapper__text-title-only {
+    order: 0;
+  }
+  
+  /* Image comes second */
+  .project-wrapper__image {
+    order: 0;
+    margin: 15px 0;
+  }
+  
+  /* Content comes third */
+  .project-wrapper__text-content {
+    order: 3;
+  }
+  
+  /* Center buttons on mobile */
+  #projects .project-wrapper__text-btns {
+    justify-content: center;
+  }
+}
+
+#soloButton {
+    justify-content: center;
+}
