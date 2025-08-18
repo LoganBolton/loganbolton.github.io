@@ -439,12 +439,20 @@ html, body {
   }
   
   .project-wrapper__text-section {
+    display: contents; /* Break the wrapper on mobile */
+  }
+  
+  .project-wrapper__text-title-only {
     order: 1;
   }
   
   .project-wrapper__image {
     order: 2;
     margin: 15px 0;
+  }
+  
+  .project-wrapper__text-content {
+    order: 3;
   }
 }
 
@@ -467,8 +475,13 @@ html, body {
     grid-template-columns: unset !important;
   }
   
-  /* Text section comes first */
+  /* Break the text section wrapper on mobile */
   .project-wrapper__text-section {
+    display: contents !important;
+  }
+  
+  /* Title comes first */
+  .project-wrapper__text-title-only {
     order: 1;
   }
   
@@ -476,6 +489,11 @@ html, body {
   .project-wrapper__image {
     order: 2;
     margin: 15px 0;
+  }
+  
+  /* Content comes third */
+  .project-wrapper__text-content {
+    order: 3;
   }
   
   /* Center buttons on mobile */
