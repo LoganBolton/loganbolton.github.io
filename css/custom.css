@@ -406,24 +406,28 @@ html, body {
 /* On desktop, treat title and content as one group */
 @media (min-width: 769px) {
   .row {
-    display: grid;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    display: flex;
+    align-items: center;
     gap: 20px;
   }
   
+  .project-wrapper__text-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
   .project-wrapper__text-title-only {
-    grid-column: 1;
-    grid-row: 1;
+    margin-bottom: 1rem;
   }
   
   .project-wrapper__text-content {
-    grid-column: 1;
-    grid-row: 2;
+    margin-top: 0;
   }
   
   .project-wrapper__image {
-    grid-column: 2;
-    grid-row: 1 / span 2; /* Span both rows */
+    flex: 1;
   }
 }
 
@@ -434,17 +438,13 @@ html, body {
     flex-direction: column;
   }
   
-  .project-wrapper__text-title-only {
+  .project-wrapper__text-section {
     order: 1;
   }
   
   .project-wrapper__image {
     order: 2;
     margin: 15px 0;
-  }
-  
-  .project-wrapper__text-content {
-    order: 3;
   }
 }
 
@@ -467,20 +467,15 @@ html, body {
     grid-template-columns: unset !important;
   }
   
-  /* Title comes first */
-  .project-wrapper__text-title-only {
-    order: 0;
+  /* Text section comes first */
+  .project-wrapper__text-section {
+    order: 1;
   }
   
   /* Image comes second */
   .project-wrapper__image {
-    order: 0;
+    order: 2;
     margin: 15px 0;
-  }
-  
-  /* Content comes third */
-  .project-wrapper__text-content {
-    order: 3;
   }
   
   /* Center buttons on mobile */
