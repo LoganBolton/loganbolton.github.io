@@ -112,7 +112,7 @@
 
         .hero-image img {
             width: 100%;
-            max-width: 250px;
+            max-width: 300px;
             height: auto;
             border-radius: 4px;
             filter: grayscale(100%);
@@ -175,7 +175,7 @@
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 2fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
         }
 
@@ -183,6 +183,11 @@
             width: 100%;
             border-radius: 4px;
             filter: grayscale(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .about-img img:hover {
+            transform: scale(1.02);
         }
 
         .about-content p {
@@ -330,7 +335,7 @@
     <div class="container">
         <header>
             <nav>
-                <div class="logo">LB.</div>
+                <div class="logo">LB</div>
                 <div class="nav-links">
                     <a href="#about">About</a>
                     <a href="#papers">Research</a>
@@ -344,11 +349,10 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>Logan Bolton</h1>
-                <p>Computer Science & Statistics Student at Auburn University. Exploring the frontiers of AI and Machine
-                    Learning.</p>
+                <p>Undergraduate Researcher at Auburn University interested in AI/ML and Computer Vision</p>
             </div>
             <div class="hero-image">
-                <img src="./assets/images/headshot2_cropped.png" alt="Logan Bolton">
+                <img src="./assets/images/headshot2_cropped_super2_small.png" alt="Logan Bolton">
             </div>
         </section>
 
@@ -359,7 +363,7 @@
             </div>
             <div class="about-grid">
                 <div class="about-img">
-                    <img src="assets/images/servers.jpg" alt="Servers">
+                    <img src="assets/images/whiteboard.jpg" alt="Whiteboard">
                 </div>
                 <div class="about-content">
                     <p>I am a Computer Science major with a minor in Statistics at Auburn University, where I will
@@ -377,10 +381,32 @@
                 <h2 class="section-title">Selected Papers</h2>
             </div>
 
+            <!-- Paper 2 -->
+            <div class="project-item">
+                <div class="project-content">
+                    <span class="meta-tag">WACV 2026</span>
+                    <h3>Understanding Generative AI Capabilities in Everyday Image Editing Tasks</h3>
+                    <p class="project-description">
+                        Native multi-modal image-editing models like GPT-4o and Gemini have shown an impressive ability
+                        to edit images through natural language prompts. This paper examines the strengths and
+                        weaknesses of these models when pitted against one-to-one matchups against human editors.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://psrdataset.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/abs/2505.16181" target="_blank">PDF</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="https://psrdataset.github.io/" target="_blank">
+                        <img src="./assets/images/imageedit.png" alt="Image Editing AI">
+                    </a>
+                </div>
+            </div>
+
             <!-- Paper 1 -->
             <div class="project-item">
                 <div class="project-content">
-                    <span class="meta-tag">ACCV 2024 Oral</span>
+                    <span class="meta-tag">ACCV 2024 - Oral</span>
                     <h3>Vision Language Models are Blind</h3>
                     <p class="project-description">
                         This paper shows the limitations of VLMs, such as GPT-4o, in extremely simple, abstract vision
@@ -400,27 +426,6 @@
                 </div>
             </div>
 
-            <!-- Paper 2 -->
-            <div class="project-item">
-                <div class="project-content">
-                    <span class="meta-tag">CVPR 2025 Workshop</span>
-                    <h3>Understanding Generative AI Capabilities in Everyday Image Editing Tasks</h3>
-                    <p class="project-description">
-                        Native multi-modal image-editing models like GPT-4o and Gemini have shown an impressive ability
-                        to edit images through natural language prompts. This paper examines the strengths and
-                        weaknesses of these models when pitted against one-to-one matchups against human editors.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://psrdataset.github.io/" target="_blank">Webpage</a>
-                        <a href="https://arxiv.org/abs/2505.16181" target="_blank">PDF</a>
-                    </div>
-                </div>
-                <div class="project-image">
-                    <a href="https://psrdataset.github.io/" target="_blank">
-                        <img src="./assets/images/imageedit.png" alt="Image Editing AI">
-                    </a>
-                </div>
-            </div>
 
             <!-- Paper 3 -->
             <div class="project-item">
@@ -460,7 +465,7 @@
                         2024, I have co-authored three different papers on understanding the strengths and weaknesses of
                         multimodal LLMs/image-editing models and improving the reliability and interpretability of
                         LLMs.<br><br>
-                        This work has led to me becoming an Auburn Undergraduate Research Fellow and receiving an
+                        This work led to me becoming an Auburn Undergraduate Research Fellow and receiving an
                         honorable mention for the Outstanding Undergraduate Researcher Award from the Computing Research
                         Association.</p>
                 </div>
@@ -538,6 +543,12 @@
         <!-- Contact -->
         <section id="contact" style="text-align: center; margin-bottom: 4rem;">
             <h2 class="section-title" style="margin-bottom: 2rem;">Contact</h2>
+
+            <div style="max-width: 300px; margin: 0 auto 3rem;">
+                <img src="assets/images/servers.jpg" alt="Servers"
+                    style="width: 100%; border-radius: 4px; filter: grayscale(100%); margin-bottom: 2rem;">
+            </div>
+
             <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--secondary-text);">Have a question or want to
                 work together? Feel free to send me an email:</p>
             <a href="mailto:loganbolton101@gmail.com" class="btn">loganbolton101@gmail.com</a>
