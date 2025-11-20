@@ -197,6 +197,26 @@
             color: var(--secondary-text);
         }
 
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-image img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .contact-image img:hover {
+            transform: scale(1.02);
+        }
+
+
         /* Projects/Papers */
         .project-item {
             display: grid;
@@ -241,16 +261,11 @@
             opacity: 0.6;
         }
 
-        .project-image {
-            background: #f9f9f9;
-            padding: 2rem;
-            border-radius: 4px;
-        }
-
         .project-image img {
             width: 100%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
+            filter: grayscale(100%);
         }
 
         .project-image:hover img {
@@ -328,6 +343,7 @@
 
             .hero,
             .about-grid,
+            .contact-grid,
             .project-item,
             .experience-item {
                 grid-template-columns: 1fr;
@@ -432,7 +448,7 @@
                 </div>
                 <div class="project-image">
                     <a href="https://psrdataset.github.io/" target="_blank">
-                        <img src="./assets/images/imageedit.png" alt="Image Editing AI">
+                        <img src="./assets/images/imageedit.png" alt="Image Editing AI" style="filter: none;">
                     </a>
                 </div>
             </div>
@@ -455,7 +471,7 @@
                 </div>
                 <div class="project-image">
                     <a href="https://vlmsareblind.github.io/" target="_blank">
-                        <img src="./assets/images/LLMsAreBlind.png" alt="VLMs are Blind">
+                        <img src="./assets/images/LLMsAreBlind.png" alt="VLMs are Blind" style="filter: none;">
                     </a>
                 </div>
             </div>
@@ -478,7 +494,7 @@
                 </div>
                 <div class="project-image">
                     <a href="https://highlightedchainofthought.github.io/" target="_blank">
-                        <img src="./assets/images/hot.png" alt="Highlighted Chain of Thought">
+                        <img src="./assets/images/hot.png" alt="Highlighted Chain of Thought" style="filter: none;">
                     </a>
                 </div>
             </div>
@@ -568,24 +584,28 @@
                 </div>
                 <div class="project-image">
                     <a href="assets/graph_project.pdf" target="_blank">
-                        <img src="./assets/images/attention.png" alt="Attention Graphs">
+                        <img src="./assets/images/attention.png" alt="Attention Graphs" style="filter: none;">
                     </a>
                 </div>
             </div>
         </section>
 
         <!-- Contact -->
-        <section id="contact" style="text-align: center; margin-bottom: 4rem;">
-            <h2 class="section-title" style="margin-bottom: 2rem;">Contact</h2>
-
-            <div style="max-width: 300px; margin: 0 auto 3rem;">
-                <img src="assets/images/servers.jpg" alt="Servers"
-                    style="width: 100%; border-radius: 4px; filter: grayscale(100%); margin-bottom: 2rem;">
+        <section id="contact">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
             </div>
 
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--secondary-text);">Have a question or want to
-                work together? Feel free to send me an email:</p>
-            <a href="mailto:loganbolton101@gmail.com" class="btn">loganbolton101@gmail.com</a>
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--secondary-text);">Have a question or
+                        want to work together? Feel free to send me an email:</p>
+                    <a href="mailto:loganbolton101@gmail.com" class="btn">loganbolton101@gmail.com</a>
+                </div>
+                <div class="contact-image">
+                    <img src="assets/images/servers.jpg" alt="Servers">
+                </div>
+            </div>
         </section>
 
     </div>
