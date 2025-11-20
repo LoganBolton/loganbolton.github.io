@@ -1,547 +1,637 @@
-<!-- HELLO
--
-DevFolio is a minimal, clean, lightweight and fully responsive template for Devlopers!
-Created by Anil Seervi.
--
-GitHub repo: https://github.com/AnilSeervi/DevFolio
-README: https://github.com/AnilSeervi/DevFolio/blob/master/README.md
--
-Have fun creating your portfolio on this template!!! -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logan Bolton | Portfolio</title>
+    <meta name="description" content="Logan Bolton | Portfolio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5cd1dd5176.js" crossorigin="anonymous"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #1a1a1a;
+            --accent-color: #2d3436;
+            --secondary-text: #636e72;
+            --border-color: #e1e1e1;
+            --spacing-unit: 1rem;
+        }
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <!-- Title: add your Portfolio websites's title here -->
-  <title>Logan Bolton | Portfolio</title>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-  <!-- Add some coding keywords below, Ex: (javascript, yourusername, etc) -->
-  <meta name="keywords" content="[Logan Bolton], [septisum], ai" />
+        h1,
+        h2,
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--text-color);
+        }
 
-  <!-- Improve your SEO by adding a small descrption of you -->
-  <meta name="description" content="Logan Bolton | Portfolio" />
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
 
-  <!-- Add a your png Logo to the assets folder and change the href attr accordingly  -->
-  <link rel="icon" type="image/png" href="./assets/devfolio-logo.png" />
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
 
-  <!-- Add your primary-theme color for the value of content -->
-  <meta name="theme-color" content="#ffffff" />
+        /* Header/Nav */
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 4rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--secondary-text);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 2rem 0 3rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--secondary-text);
+            margin-bottom: 2rem;
+            max-width: 400px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 4px;
+            filter: grayscale(100%);
+            transition: transform 0.5s ease;
+            display: block;
+            margin: 0 auto;
+            /* Center the smaller image */
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--text-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--text-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--text-color);
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 8rem;
+        }
+
+        .section-header {
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .about-img img:hover {
+            transform: scale(1.02);
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+        }
+
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .contact-image img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(100%);
+            transition: transform 0.5s ease;
+        }
+
+        .contact-image img:hover {
+            transform: scale(1.02);
+        }
 
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <!-- Fill content with the URL of this portfolio you'll host -->
-  <!-- <meta property="og:url" content="https://devfolio.js.org/" /> -->
-  <!-- Fill content with the title of your portfolio(Recommended to use what you put in <title> tag) -->
-  <meta property="og:title" content="Logan Bolton | Portfolio" />
-  <!-- Give a short description that'll show up when you/someone shares your portfolio on different platform -->
-  <meta property="og:description" content="Made using DevFolio Template" />
-  <!-- Add a thumbnail image in assets folder and fill the content attr with URL to that thumbnail 
-      so that a thumbnail image of your portfolio is shown while shared on other platform -->
-  <!-- <meta
-      property="og:image"
-      content="https://devfolio.js.org/assets/devfolio.png"
-    /> -->
+        /* Projects/Papers */
+        .project-item {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: start;
+        }
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <!-- Again fill content attr with the URL of this portfolio you'll host -->
-  <meta property="twitter:url" content="https://devfolio.js.org" />
-  <!-- Recommended to use the same text used within <title> element -->
-  <meta property="twitter:title" content="Logan Bolton | Portfolio" />
-  <!-- short description that shows up while your portfolio is shared -->
-  <meta property="twitter:description" content="Made using DevFolio Template" />
-  <!-- Fill content with the URL to the thumbnail image that you'll put in the assets folder -->
-  <meta property="twitter:image" content="https://anilseervi.vercel.app/assets/devfolio.png" />
+        .project-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
 
-  <!-- link tags -->
-  <link rel="preload" as="style" href="./css/main.css" />
-  <link rel="preload" as="style" href="./css/custom.css" />
-  <link rel="stylesheet" href="./css/main.css" />
-  <link rel="stylesheet" href="./css/custom.css" />
+        .meta-tag {
+            display: inline-block;
+            font-size: 0.8rem;
+            background: #f1f1f1;
+            padding: 0.2rem 0.6rem;
+            border-radius: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--secondary-text);
+        }
 
-  <!-- FontAwesome Icons link -->
-  <!-- <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    /> -->
+        .project-description {
+            color: var(--secondary-text);
+            margin-bottom: 1.5rem;
+        }
 
-  <script src="https://kit.fontawesome.com/5cd1dd5176.js" crossorigin="anonymous"></script>
+        .project-links a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-right: 1.5rem;
+            border-bottom: 1px solid var(--text-color);
+        }
 
-  <script defer src="./javascript/scrollreveal.min.js"></script>
-  <script defer type="text/javascript" src="./javascript/scrollveal.js"></script>
+        .project-links a:hover {
+            opacity: 0.6;
+        }
 
-  <!-- Remove Google Analytics once you have your portfolio website set-up -->
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122228201-4"></script>
-  <script>
-    window.dataLayer = window.dataLayer || []
-    function gtag() {
-      dataLayer.push(arguments)
-    }
-    gtag("js", new Date())
+        .project-image img {
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+            filter: grayscale(100%);
+        }
 
-    gtag("config", "UA-122228201-4")
-  </script>
-  <!-- End of Google Analytics -->
+        .project-image:hover img {
+            transform: translateY(-5px);
+        }
+
+        /* Experience List */
+        .experience-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 2rem 0;
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            gap: 2rem;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-date {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: var(--secondary-text);
+        }
+
+        .exp-details h3 {
+            font-size: 1.4rem;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 0.5rem;
+        }
+
+        .company {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #f9f9f9;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-bottom: 2rem;
+        }
+
+        .social-links a {
+            font-size: 1.5rem;
+            margin: 0 1rem;
+            color: var(--text-color);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+
+            nav {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+
+            .nav-links {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.5rem 1.5rem;
+                text-align: left;
+            }
+
+            .nav-links a {
+                margin-left: 0;
+                font-size: 0.85rem;
+            }
+
+            .hero,
+            .about-grid,
+            .contact-grid,
+            .project-item,
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                text-align: center;
+                padding-top: 1rem;
+                padding-bottom: 3rem;
+                margin-bottom: 4rem !important;
+            }
+
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .project-item {
+                margin-bottom: 4rem;
+            }
+
+            .about-content .btn-outline {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: fit-content;
+            }
+
+            .project-image {
+                order: -1;
+                max-width: 250px;
+                margin: 0 auto;
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
-  <!-- Hero Section -->
-  <div id="hero" class="container">
-    <section class="mainPhotoContainer">
-      <div class="mainText">
-        <h1 class="hero-title">
-          Hi,
-          <!-- <br /> -->
-          my name is <span class="text-color-main name">Logan Bolton</span>
-        </h1>
-        <!-- <p class="hero-cta">
-            <a class="cta-btn cta-btn--hero" href="#contact">Get in touch</a>
-          </p> -->
-      </div>
-      <div class="faceContainer">
-        <!-- <img class="headshot" src="./assets/images/headshot.jpeg" alt="Image" /> -->
-        <img class="headshot" src="./assets/images/headshot2_cropped.png" alt="Image" />
-      </div>
-    </section>
-    <!-- <a href="#about" class="scroll-down-link" aria-label="scroll-down">
-        <div class="scroll-down"></div
-      ></a> -->
-  </div>
-  <!-- /END Hero Section -->
 
-  <!-- About Section -->
-  <section id="about">
     <div class="container">
-      <div class="row about-wrapper">
-        <div class="about-wrapper__image">
-          <div class="cropped-image">
-            <img class="img-fluid altBioImage" src="assets/images/servers.jpg" alt="Profile Image" />
-          </div>
-        </div>
-        <div class="about-wrapper__info">
-          <h2 class="section-title">About Me</h2>
-          <p class="about-wrapper__info-text">
-            I am a Computer Science major with a minor in Statistics at Auburn University, where I will graduate in
-            Spring 2026. I have experience with Python, PyTorch, SQL, JavaScript, HTML/CSS and more.
-            <br><br>
-            I am currently seeking full-time opportunities for AI/ML related roles after graduation.
-            <!-- I am currently seeking internship opportunities for Summer 2026 before attending graduate school for my
-            Master's degree. -->
-          </p>
-          <!-- <p class="about-wrapper__info-text">
-              I'm currently seeking a Summer 2025 internship in machine learning or data science.
-            </p> -->
-          <span class="about-wrapper__cta">
-            <a href="assets/Logan-Bolton-Resume.pdf" class="cta-btn cta-btn--resume">View Resume</a>
-          </span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-  <!--Projects Section-->
-  <section id="projects">
-    <div class="container">
-      <div class="project-wrapper">
-        <h2 class="section-title dark-blue-text">Papers</h2>
-
-        <!-- Paper 1 -->
-        <article class="paper-row">
-          <div class="project-wrapper__text">
-            <h3 class="project-wrapper__text-title"><b>[ACCV 2024 Oral]</b> <br>Vision Language Models are Blind</h3>
-            <p class="project-wrapper__text-info">
-              This paper shows the limitations of VLMs, such as GPT-4o, in extremely simple, abstract vision tasks.
-              Despite their high scores on multimodal benchmarks, these models often fail on very basic cases.<br><br>
-
-              This research has been featured by
-              <a href="https://openai.com/index/thinking-with-images/?utm_source=tldrai" target="_blank"
-                rel="noopener noreferrer">OpenAI</a>,
-              <a href="https://techcrunch.com/2024/07/11/are-visual-ai-models-actually-blind/?guccounter=1"
-                target="_blank" rel="noopener noreferrer">TechCrunch</a>, and
-              <a href="https://arstechnica.com/ai/2024/07/can-you-do-better-than-top-level-ai-models-on-these-basic-vision-tests/"
-                target="_blank" rel="noopener noreferrer">Ars Technica</a>.
-            </p>
-            <div class="project-wrapper__text-btns">
-              <a href="https://vlmsareblind.github.io/" target="_blank" rel="noopener noreferrer"
-                class="btn-webpage">Webpage</a>
-              <a href="https://arxiv.org/pdf/2407.06581" target="_blank" class="btn-pdf">PDF</a>
-            </div>
-          </div>
-
-
-          <div class="project-wrapper__image paperContainer">
-            <a href="https://vlmsareblind.github.io/" target="_blank" rel="noopener noreferrer">
-              <div class="thumbnail rounded paper">
-                <img src="./assets/images/LLMsAreBlind.png" class="img-fluid" alt="Project Image" width=20%; />
-              </div>
-            </a>
-          </div>
-        </article>
-
-        <!-- Paper 2 -->
-        <article class="paper-row">
-          <div class="project-wrapper__text">
-            <h3 class="project-wrapper__text-title">[CVPR 2025 Workshop]<br>Understanding Generative AI Capabilities in
-              Everyday Image Editing Tasks</h3>
-            <p class="project-wrapper__text-info">
-              Native multi-modal image-editing models like GPT-4o and Gemini have shown an impressive ability to edit
-              images through natural language prompts. This paper examines the strengths and weaknesses of these models
-              when pitted against one-to-one matchups against human editors.
-            </p>
-            <div class="project-wrapper__text-btns">
-              <a href="https://psrdataset.github.io/" target="_blank" rel="noopener noreferrer"
-                class="btn-webpage">Webpage</a>
-              <a href="https://arxiv.org/abs/2505.16181" target="_blank" class="btn-pdf">PDF</a>
-            </div>
-          </div>
-
-          <div class="project-wrapper__image paperContainer">
-            <a href="https://psrdataset.github.io/" target="_blank" rel="noopener noreferrer">
-              <div class="thumbnail rounded paper">
-                <img src="./assets/images/imageedit.png" class="img-fluid" alt="Project Image" width=15%; />
-              </div>
-            </a>
-          </div>
-        </article>
-
-
-        <!-- Paper 3 -->
-        <article class="paper-row">
-          <div class="project-wrapper__text">
-            <h3 class="project-wrapper__text-title">[Arxiv Preprint]<br>HoT: Highlighted Chain of Thought for
-              Referencing Supporting Facts from Inputs</h3>
-            <p class="project-wrapper__text-info">
-              This paper explores how allowing LLMs to highlight their chain of thought to visually link information in
-              the question and answer can increase LLM accuracy while also improving user experience.
-            </p>
-            <div class="project-wrapper__text-btns">
-              <a href="https://highlightedchainofthought.github.io/" target="_blank" rel="noopener noreferrer"
-                class="btn-webpage">Webpage</a>
-              <a href="https://arxiv.org/abs/2503.02003" target="_blank" class="btn-pdf">PDF</a>
-            </div>
-          </div>
-
-          <div class="project-wrapper__image paperContainer">
-            <a href="https://highlightedchainofthought.github.io/" target="_blank" rel="noopener noreferrer">
-              <div class="thumbnail rounded paper">
-                <img src="./assets/images/hot.png" class="img-fluid" alt="Project Image" width=20%; />
-              </div>
-            </a>
-          </div>
-        </article>
-
-
-        <h2 class="section-title dark-blue-text">AI/ML Experience</h2>
-
-        <!-- Position 1 -->
-        <article class="experience-row">
-          <div class="project-wrapper__text">
-            <h3 class="project-wrapper__text-title">Undergraduate AI Researcher</h3>
-            <p class="company-name">Explainable AI Lab - Auburn University</p>
-
-            <p class="project-wrapper__text-info">
-              I am an Undergraduate Researcher in <a href="https://anhnguyen.me/research/" target="_blank"
-                rel="noopener noreferrer">Dr. Anh
-                Nguyen's Explainable AI lab</a>. Since joining in July 2024, I have co-authored three different papers
-              on
-              understanding the strengths and weaknesses of multimodal LLMs/image-editing models and improving the
-              reliability and interpretability of LLMs.
-              <br><br>
-
-              This work has led to me becoming an <a href="https://our.auburn.edu/undergraduate-research-fellowship/"
-                target="_blank" rel="noopener noreferrer">Auburn Undergraduate Research Fellow</a> and receiving an
-              honorable mention for the <a
-                href="https://cra.org/about/awards/outstanding-undergraduate-researcher-award/" target="_blank"
-                rel="noopener noreferrer">Outstanding Undergraduate Researcher Award</a> from the Computing Research
-              Association.
-            </p>
-          </div>
-        </article>
-
-        <!-- Position 2 -->
-        <article class="experience-row">
-          <div class="project-wrapper__text">
-            <h3 class="project-wrapper__text-title">Artificial Intelligence and Machine Learning Intern</h3>
-            <p class="company-name">Corvid Technologies - Huntsville, AL</p>
-            <p class="project-wrapper__text-info">
-              Summer 2025 intern at the defense contractor <a href="https://www.corvidtec.com/" target="_blank"
-                rel="noopener noreferrer">Corvid Technologies</a>. I worked on applying deep learning to develop
-              more sophisticated methods to predict how 3D objects affect radar response signals.
-            </p>
-          </div>
-        </article>
-
-        <!-- Position 3 -->
-        <article class="experience-row">
-          <div class="project-wrapper__text">
-            <h3 class="project-wrapper__text-title">Biomechanics Deep Learning Lab Assistant</h3>
-            <p class="company-name">Sport Biomechanics Lab - Auburn University</p>
-            <p class="project-wrapper__text-info">
-              I have worked as a lab assistant at the <a href="https://sportbiomechlab.auburn.edu/" target="_blank"
-                rel="noopener noreferrer">Auburn Sport Biomechanics lab</a> since Fall 2024. I created a ResNet based pose estimation model to study how different
-              movements can affect the long-term health of canines.
-            </p>
-          </div>
-        </article>
-
-
-        <h2 class="section-title dark-blue-text" id="projectTitle">Projects</h2>
-<!-- 
-        <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Twitter Disaster Prediction Model</h3>
-              <p class="project-wrapper__text-info">
-                Classified if tweets were referencing real world disasters or not using a fine tuned BERT model.
-                Achieved 83% accuracy and top 10% performance amongst thousands of competitors in a Kaggle competition.
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://github.com/LoganBolton/NLP_Tweets"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >View Code</a
-                >
-              </div>
-            </div>
-          </article> -->
-        <!-- 
-            <div class="project-wrapper__image">
-              <a href="https://github.com/LoganBolton/NLP_Tweets" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/twitter.jpg"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
+        <header>
+            <nav>
+                <div class="logo">LB</div>
+                <div class="nav-links">
+                    <a href="#about">About</a>
+                    <a href="#papers">Research</a>
+                    <a href="#experience">Experience</a>
+                    <a href="#contact">Contact</a>
                 </div>
-              </a>
+            </nav>
+        </header>
+
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Logan Bolton</h1>
+                <p>Undergraduate Researcher at Auburn University interested in AI/ML and Computer Vision</p>
             </div>
-          </article>
-        <!-- END Project -->
-
-<!-- 
-        <article class="row proj">
-          <div class="project-wrapper__text-title-only">
-            <h3 class="project-wrapper__text-title">Neural Network from Scratch</h3>
-          </div>
-
-          <div class="project-wrapper__image">
-            <a href="https://github.com/LoganBolton/NeuralNetworkFromScratch" target="_blank" rel="noopener noreferrer">
-              <div class="thumbnail rounded">
-                <img src="./assets/mnist.png" class="img-fluid" alt="Project Image" width="1366"
-                  height="767" />
-              </div>
-            </a>
-          </div>
-
-          <div class="project-wrapper__text-content">
-            <p class="project-wrapper__text-info">
-            Created a neural network from scratch using Python and Numpy without the use of modern libraries like
-            PyTorch.
-            Trained an MLP on the MNIST dataset and achieved 92% accuracy.
-            </p>
-            <div class="project-wrapper__text-btns" id="soloButton">
-              <a href="https://github.com/LoganBolton/Reverse-Attention-Graphs" target="_blank"
-                class="btn-pdf"><span>View Code</span></a>
+            <div class="hero-image">
+                <img src="./assets/images/headshot2_cropped_super2_small.png" alt="Logan Bolton">
             </div>
-          </div>
-        </article> -->
+        </section>
 
-
-        <article class="row proj">
-          <div class="project-wrapper__text-section">
-            <div class="project-wrapper__text-title-only">
-              <h3 class="project-wrapper__text-title">Wordle - GRPO Agent</h3>
+        <!-- About -->
+        <section id="about">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
             </div>
-
-            <div class="project-wrapper__text-content">
-              <p class="project-wrapper__text-info">
-                Finetuned an open-source LLM and trained with reinforcement learning to improve the model from only being able to complete 0.1% of Wordle games to successfully completing 18% of games.
-              </p>
-              <div class="project-wrapper__text-btns" id="soloButton">
-                <a href="https://github.com/LoganBolton/wordle_rl" target="_blank"
-                  class="btn-pdf"><span>View Code</span></a>
-              </div>
-            </div>
-          </div>
-
-          <div class="project-wrapper__image">
-            <a href="https://github.com/LoganBolton/wordle_rl" target="_blank" rel="noopener noreferrer">
-              <div class="thumbnail rounded">
-                <img src="./assets/wordle.jpeg" class="img-fluid" alt="Project Image" width="1366"
-                  height="767" />
-              </div>
-            </a>
-          </div>
-        </article>
-
-        <article class="row proj">
-          <div class="project-wrapper__text-section">
-            <div class="project-wrapper__text-title-only">
-              <h3 class="project-wrapper__text-title">Reverse Engineering Information from LLM Attention Values</h3>
-            </div>
-        
-            <div class="project-wrapper__text-content">
-              <p class="project-wrapper__text-info">
-                For the final project of my graph theory class, I trained a model to reconstruct the adjacency matrix of a
-                graph based off the attention values of an LLM. This project demonstrates an example of how the
-                attention map patterns of LLMs can be used to help interpret the inner workings of language models.
-              </p>
-              <div class="project-wrapper__text-btns" id="soloButton">
-                <a href="assets/graph_project.pdf" target="_blank" rel="noopener noreferrer" class="btn-webpage">Project Report</a>
-                <a href="https://github.com/LoganBolton/Reverse-Attention-Graphs" target="_blank" class="btn-pdf"><span>View Code</span></a>
-              </div>
-            </div>
-          </div>
-        
-          <div class="project-wrapper__image">
-            <a href="assets/graph_project.pdf" target="_blank" rel="noopener noreferrer">
-              <div class="thumbnail rounded">
-                <img src="./assets/images/attention.png" class="img-fluid" alt="Project Image" width="1366"
-                  height="767" />
-              </div>
-            </a>
-          </div>
-        </article>
-        
-        <!-- Each .row is a project -->
-        <!-- <article class="row">
-            <div class="project-wrapper__text">
-              <h3 class="project-wrapper__text-title">Facial Detection Model</h3>
-              <p class="project-wrapper__text-info">
-                Developed a YOLOv5 model for facial recognition using a publicly 
-                available dataset of 1,000+ images resulting in a model that is able to quickly
-                recognize faces in real-time videos.
-              </p>
-              <div class="project-wrapper__text-btns">
-                <a
-                  href="https://github.com/LoganBolton/FacialDetection"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="cta-btn cta-btn--hero cta-btn--projects"
-                  >View Code</a
-                >
-                <a href="#" target="_blank" class="cta-btn text-color-main"
-                  >Source Code</a
-              </div>
-            </div>
-
-            <div class="project-wrapper__image">
-              <a href="https://github.com/LoganBolton/FacialDetection" target="_blank" rel="noopener noreferrer">
-                <div class="thumbnail rounded">
-                  <img
-                    src="./assets/face.gif"
-                    class="img-fluid"
-                    alt="Project Image"
-                    width="1366"
-                    height="767"
-                  />
+            <div class="about-grid">
+                <div class="about-img">
+                    <img src="assets/images/whiteboard.jpg" alt="Whiteboard">
                 </div>
-              </a>
+                <div class="about-content">
+                    <p>I am a Computer Science major with a minor in Statistics at Auburn University, where I will
+                        graduate in Spring 2026. I have experience with Python, PyTorch, SQL, JavaScript, HTML/CSS and
+                        more.</p>
+                    <p>I am currently seeking full-time opportunities for AI/ML related roles after graduation.</p>
+                    <a href="assets/Logan-Bolton-Resume.pdf" class="btn btn-outline">View Resume</a>
+                </div>
             </div>
-          </article> -->
-        <!-- /END Project -->
+        </section>
 
-        <!-- Each .row is a project -->
-        <!-- <article class="row proj">
-          <div class="project-wrapper__text-title-only">
-            <h3 class="project-wrapper__text-title">Neural Network from Scratch</h3>
-          </div>
+        <!-- Papers -->
+        <section id="papers">
+            <div class="section-header">
+                <h2 class="section-title">Selected Papers</h2>
+            </div>
 
-          <div class="project-wrapper__image">
-            <a href="https://github.com/LoganBolton/NeuralNetworkFromScratch" target="_blank" rel="noopener noreferrer">
-              <div class="thumbnail rounded">
-                <img src="./assets/mnist.png" class="img-fluid" alt="Project Image" width="1366" height="767" />
-              </div>
-            </a>
-          </div>
+            <!-- Paper 2 -->
+            <div class="project-item">
+                <div class="project-content">
+                    <span class="meta-tag">WACV 2026</span>
+                    <h3>Understanding Generative AI Capabilities in Everyday Image Editing Tasks</h3>
+                    <p class="project-description">
+                        Native multi-modal image-editing models like GPT-4o and Gemini have shown an impressive ability
+                        to edit images through natural language prompts. This paper examines the strengths and
+                        weaknesses of these models when pitted against one-to-one matchups against human editors.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://psrdataset.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/abs/2505.16181" target="_blank">PDF</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="https://psrdataset.github.io/" target="_blank">
+                        <img src="./assets/images/imageedit.png" alt="Image Editing AI" style="filter: none;">
+                    </a>
+                </div>
+            </div>
 
-          <p class="project-wrapper__text-info">
-            Created a neural network from scratch using Python and Numpy without the use of modern libraries like
-            PyTorch.
-            Trained an MLP on the MNIST dataset and achieved 92% accuracy.
-          </p>
-          <div class="project-wrapper__text-btns" id="soloButton">
-            <a href="https://github.com/LoganBolton/NeuralNetworkFromScratch" target="_blank" rel="noopener noreferrer"
-              class="btn-pdf"><span>View Code</span></a>
-          </div>
-        </article> -->
-        <!-- /END Project -->
+            <!-- Paper 1 -->
+            <div class="project-item">
+                <div class="project-content">
+                    <span class="meta-tag">ACCV 2024 - Oral</span>
+                    <h3>Vision Language Models are Blind</h3>
+                    <p class="project-description">
+                        This paper shows the limitations of VLMs, such as GPT-4o, in extremely simple, abstract vision
+                        tasks. Despite their high scores on multimodal benchmarks, these models often fail on very basic
+                        cases.<br><br>
+                        This research has been featured by OpenAI, TechCrunch, and Ars Technica.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://vlmsareblind.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/pdf/2407.06581" target="_blank">PDF</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="https://vlmsareblind.github.io/" target="_blank">
+                        <img src="./assets/images/LLMsAreBlind.png" alt="VLMs are Blind" style="filter: none;">
+                    </a>
+                </div>
+            </div>
 
-      </div>
+
+            <!-- Paper 3 -->
+            <div class="project-item">
+                <div class="project-content">
+                    <span class="meta-tag">Arxiv Preprint</span>
+                    <h3>HoT: Highlighted Chain of Thought for Referencing Supporting Facts from Inputs</h3>
+                    <p class="project-description">
+                        This paper explores how allowing LLMs to highlight their chain of thought to visually link
+                        information in the question and answer can increase LLM accuracy while also improving user
+                        experience.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://highlightedchainofthought.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/abs/2503.02003" target="_blank">PDF</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="https://highlightedchainofthought.github.io/" target="_blank">
+                        <img src="./assets/images/hot.png" alt="Highlighted Chain of Thought" style="filter: none;">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience">
+            <div class="section-header">
+                <h2 class="section-title">Experience</h2>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-date">July 2024 - Present</div>
+                <div class="exp-details">
+                    <h3>Undergraduate AI Researcher</h3>
+                    <span class="company">Explainable AI Lab - Auburn University</span>
+                    <p>I am an Undergraduate Researcher in Dr. Anh Nguyen's Explainable AI lab. Since joining in July
+                        2024, I have co-authored three different papers on understanding the strengths and weaknesses of
+                        multimodal LLMs/image-editing models and improving the reliability and interpretability of
+                        LLMs.<br><br>
+                        This work led to me becoming an Auburn Undergraduate Research Fellow and receiving an
+                        honorable mention for the Outstanding Undergraduate Researcher Award from the Computing Research
+                        Association.</p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-date">Summer 2025</div>
+                <div class="exp-details">
+                    <h3>Artificial Intelligence and Machine Learning Intern</h3>
+                    <span class="company">Corvid Technologies - Huntsville, AL</span>
+                    <p>Summer 2025 intern at the defense contractor Corvid Technologies. I worked on applying deep
+                        learning to develop more sophisticated methods to predict how 3D objects affect radar response
+                        signals.</p>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-date">Fall 2024 - Present</div>
+                <div class="exp-details">
+                    <h3>Biomechanics Deep Learning Lab Assistant</h3>
+                    <span class="company">Sport Biomechanics Lab - Auburn University</span>
+                    <p>I have worked as a lab assistant at the Auburn Sport Biomechanics lab since Fall 2024. I created
+                        a ResNet based pose estimation model to study how different movements can affect the long-term
+                        health of canines.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="projects">
+            <div class="section-header">
+                <h2 class="section-title">Other Projects</h2>
+            </div>
+
+            <div class="project-item">
+                <div class="project-content">
+                    <h3>Wordle - GRPO Agent</h3>
+                    <p class="project-description">
+                        Finetuned an open-source LLM and trained with reinforcement learning to improve the model from
+                        only being able to complete 0.1% of Wordle games to successfully completing 18% of games.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://github.com/LoganBolton/wordle_rl" target="_blank">View Code</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="https://github.com/LoganBolton/wordle_rl" target="_blank">
+                        <img src="./assets/wordle.jpeg" alt="Wordle Agent">
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-item">
+                <div class="project-content">
+                    <h3>Reverse Engineering Information from LLM Attention Values</h3>
+                    <p class="project-description">
+                        For the final project of my graph theory class, I trained a model to reconstruct the adjacency
+                        matrix of a graph based off the attention values of an LLM. This project demonstrates an example
+                        of how the attention map patterns of LLMs can be used to help interpret the inner workings of
+                        language models.
+                    </p>
+                    <div class="project-links">
+                        <a href="assets/graph_project.pdf" target="_blank">Report</a>
+                        <a href="https://github.com/LoganBolton/Reverse-Attention-Graphs" target="_blank">View Code</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="assets/graph_project.pdf" target="_blank">
+                        <img src="./assets/images/attention.png" alt="Attention Graphs" style="filter: none;">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-header">
+                <h2 class="section-title">Contact</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-content">
+                    <p style="font-size: 1.2rem; margin-bottom: 2rem; color: var(--secondary-text);">Have a question or
+                        want to work together? Feel free to send me an email:</p>
+                    <a href="mailto:loganbolton101@gmail.com" class="btn">loganbolton101@gmail.com</a>
+                </div>
+                <div class="contact-image">
+                    <img src="assets/images/servers.jpg" alt="Servers">
+                </div>
+            </div>
+        </section>
+
     </div>
-  </section>
-  <!-- End Projects Section -->
 
-
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <div class="info-container">
-        <div class="thumbnail rounded">
-          <img class="asi" src="./assets/images/asi.jpg" alt="Image" width=90%; />
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/logan-bolton-5bba7921b/" target="_blank"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="https://github.com/LoganBolton" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://x.com/septisum" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Logan Bolton. All rights reserved.</p>
         </div>
-        <div class="contact-wrapper">
-          <p class="contact-wrapper__text">Have a question or want to work together? Feel free to send me an email:</p>
-          <!-- <p class="contact-wrapper__text"><i class="fa-solid fa-envelope"></i>         loganbolton101@gmail.com</p> -->
-          <p class="contact-wrapper__text">loganbolton101@gmail.com</p>
+    </footer>
 
-          <!-- <a href="#" class="cta-btn cta-btn--resume">Call to Action</a> -->
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- END Contact Section -->
-
-  <!-- Footer Section -->
-  <footer class="footer">
-    <div class="container">
-      <!-- <a href="#hero" class="back-to-top" aria-label="go back to top">
-          <i class="fa fa-angle-up fa-2x" aria-hidden="true"></i>
-        </a> -->
-      <div class="social-links">
-        <a href="https://www.linkedin.com/in/logan-bolton-5bba7921b/" target="_blank" rel="noopener noreferrer"
-          aria-label="linkedin">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-
-        <a href="https://github.com/LoganBolton" target="_blank" rel="noopener noreferrer" aria-label="github">
-          <i class="fa-brands fa-github"></i>
-        </a>
-
-        <a href="https://x.com/septisum" target="_blank" rel="noopener noreferrer" aria-label="github">
-          <i class="fa-brands fa-x-twitter"></i>
-        </a>
-      </div>
-      <hr />
-    </div>
-  </footer>
-  <!-- END Footer Section -->
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear()
-  </script>
-  <script src="./javascript/vanilla-tilt.min.js"></script>
-  <script type="text/javascript" src="./javascript/valtilt.js"></script>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
