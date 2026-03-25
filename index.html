@@ -124,12 +124,12 @@
         }
 
         .hero-image img:hover {
-            transform: scale(1.02);
+            transform: none;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2rem;
+            padding: 0.6rem 1.4rem;
             background-color: var(--text-color);
             color: var(--bg-color);
             font-size: 0.9rem;
@@ -153,6 +153,39 @@
         .btn-outline:hover {
             background-color: var(--text-color);
             color: var(--bg-color);
+        }
+
+        /* About Buttons */
+        .about-buttons {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .social-icon-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: calc(1rem * 2 + 0.9rem * 1.6);
+            color: var(--text-color);
+            font-size: 2.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon-btn:hover {
+            opacity: 0.5;
+        }
+
+        .scholar-icon {
+            width: 38px;
+            height: 38px;
+            object-fit: contain;
         }
 
         /* Section Styles */
@@ -188,7 +221,7 @@
         }
 
         .about-img img:hover {
-            transform: scale(1.02);
+            transform: none;
         }
 
         .about-content p {
@@ -222,7 +255,7 @@
             display: grid;
             grid-template-columns: 3fr 2fr;
             gap: 4rem;
-            margin-bottom: 6rem;
+            margin-bottom: 3.6rem;
             align-items: start;
         }
 
@@ -262,7 +295,7 @@
         }
 
         .project-image img {
-            width: 100%;
+            width: 80%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
             filter: grayscale(100%);
@@ -370,6 +403,11 @@
                 margin-bottom: 4rem;
             }
 
+            .about-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
             .about-content .btn-outline {
                 display: block;
                 margin-left: auto;
@@ -427,7 +465,15 @@
                         graduate in Spring 2026. I have experience with Python, PyTorch, SQL, JavaScript, HTML/CSS and
                         more.</p>
                     <p>I am currently seeking full-time opportunities for AI/ML related roles after graduation.</p>
-                    <a href="assets/Resume_Logan_Bolton.pdf" class="btn btn-outline">View Resume</a>
+                    <div class="about-buttons">
+                        <div class="social-icons">
+                            <a href="https://scholar.google.com/citations?hl=en&user=1vfLo4UAAAAJ" target="_blank" class="social-icon-btn" title="Google Scholar"><img src="assets/scholar.png" alt="Google Scholar" class="scholar-icon"></a>
+                            <a href="https://x.com/septisum" target="_blank" class="social-icon-btn" title="X"><i class="fa-brands fa-x-twitter"></i></a>
+                            <a href="https://www.linkedin.com/in/logan-bolton-5bba7921b/" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://github.com/LoganBolton" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                        <a href="assets/Resume_Logan_Bolton.pdf" class="btn btn-outline">R&#233;sum&#233;</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -469,7 +515,7 @@
                         This paper shows the limitations of VLMs, such as GPT-4o, in extremely simple, abstract vision
                         tasks. Despite their high scores on multimodal benchmarks, these models often fail on very basic
                         cases.<br><br>
-                        This research has been featured by OpenAI, TechCrunch, and Ars Technica.
+                        This research has been featured by OpenAI, Google Deepmind, ByteDance, and more.
                     </p>
                     <div class="project-links">
                         <a href="https://vlmsareblind.github.io/" target="_blank">Webpage</a>
@@ -487,7 +533,7 @@
             <!-- Paper 3 -->
             <div class="project-item">
                 <div class="project-content">
-                    <span class="meta-tag">Arxiv Preprint</span>
+                    <span class="meta-tag">NeurIPS 2025 Workshop</span>
                     <h3>HoT: Highlighted Chain of Thought for Referencing Supporting Facts from Inputs</h3>
                     <p class="project-description">
                         This paper explores how allowing LLMs to highlight their chain of thought to visually link
@@ -619,12 +665,12 @@
 
     <footer>
         <div class="container">
-            <div class="social-links">
+            <!-- <div class="social-links">
                 <a href="https://www.linkedin.com/in/logan-bolton-5bba7921b/" target="_blank"><i
                         class="fa-brands fa-linkedin"></i></a>
                 <a href="https://github.com/LoganBolton" target="_blank"><i class="fa-brands fa-github"></i></a>
                 <a href="https://x.com/septisum" target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
+            </div> -->
             <p>&copy; <span id="year"></span> Logan Bolton. All rights reserved.</p>
         </div>
     </footer>
