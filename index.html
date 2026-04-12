@@ -90,12 +90,12 @@
 
         /* Hero Section */
         .hero {
-            padding: 2rem 0 3rem;
+            padding: 2rem 0 1rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-            margin-bottom: 4rem;
+            margin-bottom: 2rem;
         }
 
         .hero-text h1 {
@@ -190,7 +190,7 @@
 
         /* Section Styles */
         section {
-            margin-bottom: 8rem;
+            margin-bottom: 3rem;
         }
 
         .section-header {
@@ -230,6 +230,10 @@
             color: var(--secondary-text);
         }
 
+        .about-content p.about-callout {
+            color: #4d565c;
+        }
+
         /* Contact Section */
         .contact-grid {
             display: grid;
@@ -255,13 +259,13 @@
             display: grid;
             grid-template-columns: 3fr 2fr;
             gap: 4rem;
-            margin-bottom: 3.6rem;
+            margin-bottom: 2rem;
             align-items: start;
         }
 
         .project-content h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
         }
@@ -308,7 +312,7 @@
         /* Experience List */
         .experience-item {
             border-bottom: 1px solid var(--border-color);
-            padding: 2rem 0;
+            padding: 0.75rem 0;
             display: grid;
             grid-template-columns: 1fr 3fr;
             gap: 2rem;
@@ -386,8 +390,8 @@
             .hero {
                 text-align: center;
                 padding-top: 1rem;
-                padding-bottom: 3rem;
-                margin-bottom: 4rem !important;
+                padding-bottom: 1rem;
+                margin-bottom: 2rem !important;
             }
 
             .hero-text h1 {
@@ -400,7 +404,7 @@
             }
 
             .project-item {
-                margin-bottom: 4rem;
+                margin-bottom: 2rem;
             }
 
             .about-buttons {
@@ -444,7 +448,7 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>Logan Bolton</h1>
-                <p>Undergraduate Researcher at Auburn University interested in AI/ML and Computer Vision</p>
+                <p>MS Computer Science student at NYU Courant interested in AI/ML and Computer Vision</p>
             </div>
             <div class="hero-image">
                 <img src="./assets/images/headshot2_cropped_super2_small.png" alt="Logan Bolton">
@@ -461,10 +465,9 @@
                     <img src="assets/images/whiteboard.jpg" alt="Whiteboard">
                 </div>
                 <div class="about-content">
-                    <p>I am a Computer Science major with a minor in Statistics at Auburn University, where I will
-                        graduate in Spring 2026. I have experience with Python, PyTorch, SQL, JavaScript, HTML/CSS and
-                        more.</p>
-                    <p>I am currently seeking full-time opportunities for AI/ML related roles after graduation.</p>
+                    <p>I graduated from Auburn University with a B.S. in Computer Science and a minor in Statistics in Spring 2026. In Fall 2026, I will begin my Master's in Computer Science at NYU Courant. I have experience with Python, PyTorch, SQL, C#,
+                    JavaScript and more.</p>
+                    <p class="about-callout"><b>I am currently looking for AI/ML related Summer 2027 internships. Please reach out!</b></p>
                     <div class="about-buttons">
                         <div class="social-icons">
                             <a href="https://scholar.google.com/citations?hl=en&user=1vfLo4UAAAAJ" target="_blank" class="social-icon-btn" title="Google Scholar"><img src="assets/scholar.png" alt="Google Scholar" class="scholar-icon"></a>
@@ -483,6 +486,27 @@
             <div class="section-header">
                 <h2 class="section-title">Selected Papers</h2>
             </div>
+            <!-- Paper 1 -->
+            <div class="project-item">
+                <div class="project-content">
+                    <span class="meta-tag">ACCV 2024 - Oral</span>
+                    <h3>Vision Language Models are Blind</h3>
+                    <p class="project-description">
+                        This paper analyzes how and why VLMs such as GPT-4o have high scores on multimodal benchmarks, but often fail on extremely simple, abstract vision tasks.<br><br>
+                        <b>This work has been featured by OpenAI, Google Deepmind, ByteDance, and has been cited 200+ times.</b>
+                    </p>
+                    <div class="project-links">
+                        <a href="https://vlmsareblind.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/pdf/2407.06581" target="_blank">PDF</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="https://vlmsareblind.github.io/" target="_blank">
+                        <img src="./assets/images/LLMsAreBlind.png" alt="VLMs are Blind" style="filter: none;">
+                    </a>
+                </div>
+            </div>
+
 
             <!-- Paper 2 -->
             <div class="project-item">
@@ -490,7 +514,7 @@
                     <span class="meta-tag">WACV 2026</span>
                     <h3>Understanding Generative AI Capabilities in Everyday Image Editing Tasks</h3>
                     <p class="project-description">
-                        Native multi-modal image-editing models like GPT-4o and Gemini have shown an impressive ability
+                        Native multi-modal image-editing models like Nanobanana have shown an impressive ability
                         to edit images through natural language prompts. This paper examines the strengths and
                         weaknesses of these models when pitted against one-to-one matchups against human editors.
                     </p>
@@ -502,29 +526,6 @@
                 <div class="project-image">
                     <a href="https://psrdataset.github.io/" target="_blank">
                         <img src="./assets/images/imageedit.png" alt="Image Editing AI" style="filter: none;">
-                    </a>
-                </div>
-            </div>
-
-            <!-- Paper 1 -->
-            <div class="project-item">
-                <div class="project-content">
-                    <span class="meta-tag">ACCV 2024 - Oral</span>
-                    <h3>Vision Language Models are Blind</h3>
-                    <p class="project-description">
-                        This paper shows the limitations of VLMs, such as GPT-4o, in extremely simple, abstract vision
-                        tasks. Despite their high scores on multimodal benchmarks, these models often fail on very basic
-                        cases.<br><br>
-                        This research has been featured by OpenAI, Google Deepmind, ByteDance, and more.
-                    </p>
-                    <div class="project-links">
-                        <a href="https://vlmsareblind.github.io/" target="_blank">Webpage</a>
-                        <a href="https://arxiv.org/pdf/2407.06581" target="_blank">PDF</a>
-                    </div>
-                </div>
-                <div class="project-image">
-                    <a href="https://vlmsareblind.github.io/" target="_blank">
-                        <img src="./assets/images/LLMsAreBlind.png" alt="VLMs are Blind" style="filter: none;">
                     </a>
                 </div>
             </div>
@@ -560,7 +561,7 @@
             </div>
 
             <div class="experience-item">
-                <div class="exp-date">July 2024 - Present</div>
+                <div class="exp-date">Summer 2024 - Present</div>
                 <div class="exp-details">
                     <h3>Undergraduate AI Researcher</h3>
                     <span class="company">Explainable AI Lab - Auburn University</span>
@@ -577,22 +578,18 @@
             <div class="experience-item">
                 <div class="exp-date">Summer 2025</div>
                 <div class="exp-details">
-                    <h3>Artificial Intelligence and Machine Learning Intern</h3>
+                    <h3>Machine Learning Intern</h3>
                     <span class="company">Corvid Technologies - Huntsville, AL</span>
-                    <p>Summer 2025 intern at the defense contractor Corvid Technologies. I worked on applying deep
-                        learning to develop more sophisticated methods to predict how 3D objects affect radar response
-                        signals.</p>
+                    <p>Developed deep learning models to predict radar responses from 3D point clouds. Built roto-translation equivariant graph neural networks to leverage the geometric structure of point cloud data for more accurate signal prediction.</p>
                 </div>
             </div>
 
             <div class="experience-item">
                 <div class="exp-date">Fall 2024 - Present</div>
                 <div class="exp-details">
-                    <h3>Biomechanics Deep Learning Lab Assistant</h3>
+                    <h3>Biomechanics Computer Vision Lab Assistant</h3>
                     <span class="company">Sport Biomechanics Lab - Auburn University</span>
-                    <p>I have worked as a lab assistant at the Auburn Sport Biomechanics lab since Fall 2024. I created
-                        a ResNet based pose estimation model to study how different movements can affect the long-term
-                        health of canines.</p>
+                    <p>Collaborated with an interdisciplinary team on a DoD-supported project studying how different movements affect the long-term health of canines. Trained pose estimation models to track joint positions across video data and analyzed kinematic patterns over time.</p>
                 </div>
             </div>
         </section>
