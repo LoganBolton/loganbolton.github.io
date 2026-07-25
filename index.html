@@ -64,7 +64,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1045px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -279,6 +279,10 @@
             font-weight: 600;
         }
 
+        .project-content h3 a:hover {
+            color: var(--secondary-text);
+        }
+
         .meta-tag {
             display: inline-block;
             font-size: 0.8rem;
@@ -310,12 +314,7 @@
         .project-image img {
             width: 80%;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
             filter: grayscale(100%);
-        }
-
-        .project-image:hover img {
-            transform: translateY(-5px);
         }
 
         /* Experience List */
@@ -457,7 +456,7 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>Logan Bolton</h1>
-                <p>MSCS student at NYU Courant <br>AI/ML intern at Los Alamos National Laboratory
+                <p>MSCS student at NYU Courant <br>Machine Learning Intern @ Los Alamos National Lab
                     <br><br>Interested in AI/ML and Computer Vision</p>
             </div>
             <div class="hero-image">
@@ -500,9 +499,9 @@
             <div class="project-item">
                 <div class="project-content">
                     <span class="meta-tag">ACCV 2024 - Oral</span>
-                    <h3>Vision Language Models are Blind</h3>
+                    <h3><a href="https://vlmsareblind.github.io/" target="_blank">Vision Language Models are Blind</a></h3>
                     <p class="project-description">
-                        This paper analyzes how and why VLMs such as GPT-4o have high scores on multimodal benchmarks, but often fail on extremely simple, abstract vision tasks.<br><br>
+                        Analyzed how and why VLMs such as GPT-4o have high scores on multimodal benchmarks, but often fail on extremely simple, abstract vision tasks.<br><br>
                         <b>This work has been featured by OpenAI, Google DeepMind, ByteDance, and has been cited 250+ times.</b>
                     </p>
                     <div class="project-links">
@@ -521,11 +520,11 @@
             <div class="project-item">
                 <div class="project-content">
                     <span class="meta-tag">TMLR 2026</span>
-                    <h3>HoT: Highlighted Chain of Thought for Referencing Supporting Facts from Inputs</h3>
+                    <h3><a href="https://highlightedchainofthought.github.io/" target="_blank">HoT: Highlighted Chain of Thought for Referencing Supporting Facts from Inputs</a></h3>
                     <p class="project-description">
-                        This paper explores how allowing LLMs to highlight their chain of thought to visually link
+                        Explored how allowing LLMs to highlight their chain of thought to visually link
                         information in the question and answer can increase LLM accuracy while also improving user
-                        experience.
+                        experiences.
                     </p>
                     <div class="project-links">
                         <a href="https://highlightedchainofthought.github.io/" target="_blank">Webpage</a>
@@ -544,7 +543,7 @@
             <div class="project-item">
                 <div class="project-content">
                     <span class="meta-tag">WACV 2026</span>
-                    <h3>Understanding Generative AI Capabilities in Everyday Image Editing Tasks</h3>
+                    <h3><a href="https://psrdataset.github.io/" target="_blank">Understanding Generative AI Capabilities in Everyday Image Editing Tasks</a></h3>
                     <p class="project-description">
                         Native multi-modal image-editing models like Nano Banana have shown an impressive ability
                         to edit images through natural language prompts. This paper examines the strengths and
@@ -573,7 +572,7 @@
             <div class="experience-item">
                 <div class="exp-date">Summer 2026</div>
                 <div class="exp-details">
-                    <h3>AI/ML Intern</h3>
+                    <h3>Machine Learning Intern</h3>
                     <span class="company">Los Alamos National Laboratory - Los Alamos, NM</span>
                     <p>Designing rotation-invariant neural network architectures for molecular simulations.</p>
                 </div>
@@ -586,10 +585,10 @@
                     <span class="company">Explainable AI Lab - Auburn University</span>
                     <p>Former undergraduate researcher in Dr. Anh Nguyen's Explainable AI lab. Co-authored three different papers on understanding the strengths and weaknesses of
                         multimodal LLMs/image-editing models and improving the reliability and interpretability of
-                        LLMs.<br><br>
-                        This work led to me becoming an Auburn Undergraduate Research Fellow and receiving an
+                        LLMs.
+                        <!-- This work led to me becoming an Auburn Undergraduate Research Fellow and receiving an
                         honorable mention for the Outstanding Undergraduate Researcher Award from the Computing Research
-                        Association.</p>
+                        Association.</p> -->
                 </div>
             </div>
 
@@ -617,13 +616,13 @@
         <!-- Projects -->
         <section id="projects">
             <div class="section-header">
-                <h2 class="section-title">Other Projects</h2>
+                <h2 class="section-title">Projects</h2>
             </div>
 
             <div class="project-item">
                 <div class="project-content">
                     <span class="meta-tag">Blog Post</span>
-                    <h3>The Best Way to Make Your (Small) Vision Language Model Smarter</h3>
+                    <h3><a href="blog/vlm-verification/" target="_blank">The Best Way to Make Your (Small) Vision Language Model Smarter</a></h3>
                     <p class="project-description">
                         A blog post on using test-time compute to boost the accuracy of small VLMs.
                     </p>
@@ -640,7 +639,7 @@
 
             <div class="project-item">
                 <div class="project-content">
-                    <h3>Wordle - GRPO Agent</h3>
+                    <h3><a href="https://github.com/LoganBolton/wordle_rl" target="_blank">Wordle - GRPO Agent</a></h3>
                     <p class="project-description">
                         Finetuned an open-source LLM and trained with reinforcement learning to improve the model from
                         only being able to complete 0.1% of Wordle games to successfully completing 18% of games.
@@ -651,14 +650,14 @@
                 </div>
                 <div class="project-image">
                     <a href="https://github.com/LoganBolton/wordle_rl" target="_blank">
-                        <img src="./assets/wordle.jpeg" alt="Wordle Agent" loading="lazy">
+                        <img src="./assets/wordle.jpeg" alt="Wordle Agent" loading="lazy"  style="filter: none">
                     </a>
                 </div>
             </div>
 
             <div class="project-item">
                 <div class="project-content">
-                    <h3>Reverse Engineering Information from LLM Attention Values</h3>
+                    <h3><a href="assets/graph_project.pdf" target="_blank">Reverse Engineering Information from LLM Attention Values</a></h3>
                     <p class="project-description">
                         For the final project of my graph theory class, I trained a model to reconstruct the adjacency
                         matrix of a graph based off the attention values of an LLM. This project demonstrates an example
