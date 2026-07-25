@@ -1,0 +1,302 @@
+<!doctype html><meta charset=utf-8><title>The Best Way to Make Your (Small) Vision Language Model Smarter</title><link rel=icon href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%91%80%3C/text%3E%3C/svg%3E"><style>
+    body{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:1100px;margin:2rem auto;
+         padding:0 1rem;color:#1a1a1a;line-height:1.5}
+    h1{border-bottom:3px solid #2c3e50;padding-bottom:.3rem}
+    h2{margin-top:2.5rem;color:#2c3e50;border-bottom:1px solid #ddd;padding-bottom:.2rem}
+    .note{color:#666;font-size:.86rem;margin:.2rem 0 .6rem}
+    table.mx{border-collapse:collapse;font-size:.8rem;margin:.5rem 0}
+    table.mx td,table.mx th{border:1px solid #ccc;padding:3px 7px;text-align:center}
+    table.mx th{background:#f4f6f8} .mx td.c{font-variant-numeric:tabular-nums lining-nums;font-family:'Times New Roman','Liberation Serif','DejaVu Serif',serif;font-size:.86rem;line-height:1}
+    .mx td.diag{outline:2px solid #2c3e50;outline-offset:-2px;font-weight:600}
+    .mx td.na{color:#c8ccd0;font-style:italic;font-size:.82em} .corner,.rowh{text-align:right!important;background:#f4f6f8;font-weight:600}
+    /* org logos: sized to the text so they never alter line height/width */
+    .lg{height:1em;width:auto;vertical-align:-0.15em;flex:none}
+    .lgbg{display:inline-block;height:1em;width:1em;background-position:center;background-size:contain;background-repeat:no-repeat;vertical-align:-0.15em;flex:none}.lg-qwen{background-image:url('data:image/png;base64,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')}.lg-gv{background-image:url('data:image/png;base64,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')}.lg-llava{background-image:url('data:image/png;base64,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')}
+    .mdl{display:inline-flex;align-items:center;gap:4px;white-space:nowrap}
+    th.col{vertical-align:bottom;padding:5px 3px}
+    th.col .vlogo{display:block;text-align:center;margin-bottom:4px}
+    th.col .vtext{writing-mode:vertical-rl;transform:rotate(180deg);white-space:nowrap;
+                  display:inline-block;font-weight:600}
+    .rowh .mdl{justify-content:flex-end}
+    .mx .spantop{background:#e8edf2;font-weight:700;letter-spacing:.04em;color:#2c3e50}
+    .mx .avgh{background:#eef2f5;font-weight:700;color:#2c3e50}
+    .mx td.avg{font-weight:700;border-left:2px solid #2c3e50}
+    .mx .corner{font-size:.72rem;line-height:1.2}
+    table.sum{font-size:.78rem} table.sum td,table.sum th{padding:2px 8px;vertical-align:middle;text-align:center}
+    table.sum .rowh{min-width:150px}
+    table.kv{border-collapse:collapse;margin:.5rem 0} table.kv td,table.kv th{border:1px solid #ccc;padding:4px 12px}
+    .grid2{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:flex-start}
+    .example-grid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:2rem;margin:2rem 0}
+    .example-grid figure,.plot-wrap{margin:0;text-align:center}
+    .example-grid img{width:100%;max-width:520px;height:205px;object-fit:cover}
+    .figcap{max-width:520px;margin:.45rem auto 2rem}
+    .equation{font-family:Georgia,Times,serif;font-size:1.05rem;margin:1rem auto;max-width:760px;text-align:center;color:#111}
+    .equation .eq{font-size:1.18rem;font-style:italic}
+    .equation .sub{font-size:.86rem;color:#666;margin-top:.35rem}
+    .plot-wrap img{max-width:560px;width:100%}
+    .table-wrap{text-align:center;overflow-x:auto}
+    .table-wrap table{margin-left:auto;margin-right:auto}
+    .fnref{color:#2c3e50;text-decoration:none;font-weight:700;font-size:.82em;margin-left:2px}
+    .footnotes{border-top:1px solid #ddd;margin-top:3rem;padding-top:1.2rem;color:#555}
+    .footnotes .mark{font-size:1.6rem;color:#2c3e50;text-align:center;line-height:1;margin-bottom:.7rem}
+    .footnotes ol{margin:.3rem 0 0;padding-left:1.3rem}
+    .footnotes li{font-size:.86rem;color:#666;margin:.3rem 0}
+    .cite a{text-decoration:none;color:#2c3e50;font-weight:600} .cite a:hover{text-decoration:underline}
+    .site-footer{border-top:1px solid #ddd;margin-top:3rem;padding:2rem 0 1rem;text-align:center;color:#555}
+    .site-footer .mark{font-size:1.6rem;color:#2c3e50;line-height:1}
+    .contact-links{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem}
+    .contact-links a{color:#2c3e50;text-decoration:none;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:.25rem;text-align:center;white-space:nowrap}
+    .contact-links .ico{font-size:1.9rem;line-height:1;height:28px;display:flex;align-items:center;justify-content:center}
+    .contact-links svg,.contact-links img{height:28px;width:auto;display:block;object-fit:contain}
+    .contact-links a:hover{text-decoration:underline}
+    .card{background:#f8f9fa;border:1px solid #e3e6e8;border-radius:8px;padding:1rem;margin:.5rem 0}
+    .rollout-panel{background:#fff;border:1px solid #d8dde2;border-radius:8px;margin-top:.85rem;overflow:hidden}
+    .rollout-grid{display:block;padding:1rem}
+    .rollout-media figure{margin:0 0 1rem}
+    .rollout-media img{width:100%;border:1px solid #ddd;border-radius:6px;background:#fff}
+    .rollout-media .original-img{max-width:646px}
+    .rollout-media .zoom-img{max-width:170px}
+    .rollout-step{border-left:3px solid #2c3e50;padding:.15rem 0 .15rem .75rem;margin:.7rem 0}
+    .rollout-step.tool{border-left-color:#1a7f37}
+    .rollout-step pre{white-space:pre-wrap;font-size:.75rem;background:#f7f7f7;border:1px solid #e3e6e8;border-radius:6px;padding:.7rem;margin:.25rem 0 0}
+    @media(max-width:760px){.example-grid{grid-template-columns:1fr}.rollout-media .zoom-img{max-width:100%}}
+    a.viewer{display:inline-block;margin:.2rem .4rem .2rem 0;padding:.3rem .7rem;background:#2c3e50;
+             color:#fff;border-radius:5px;text-decoration:none;font-size:.85rem}
+        .mx tr.avgrow td,.mx tr.avgrow th{border-top:2px solid #2c3e50;background:#eef2f5;font-weight:700}
+    
+/* ==== THEME: book ==== */
+body{font-family:Georgia,'Times New Roman',Times,serif;
+  background:#fff;color:#111;max-width:820px;line-height:1.6;font-size:1.05rem;
+  text-align:justify;hyphens:auto}
+h1{border:0;text-align:center;font-weight:400;font-size:2rem;line-height:1.2;
+  letter-spacing:.01em;margin:.4rem auto 1.6rem}
+h2{border:0;color:#111;font-weight:700;font-size:1.3rem;margin-top:2.8rem;
+  text-transform:uppercase;letter-spacing:.14em}
+.std{color:#999;font-size:.82em;font-weight:400}
+body>p.note:first-of-type::first-letter{float:left;font-size:3.1rem;line-height:.8;
+  padding:.05em .1em 0 0;font-weight:400}
+a{color:#111;text-decoration:underline;text-underline-offset:2px;
+  text-decoration-color:#999}
+a:hover{text-decoration-color:#111}
+.note{color:#444;font-style:normal}
+.mx td.diag,.rollout-step{border-color:#111}
+/* show the full CharXiv/CountBench example photos instead of a cropped strip */
+.example-grid img{height:auto;object-fit:contain;max-width:100%;width:auto;display:block;margin-inline:auto}
+/* let the methods diagram span the full text column */
+div:has(> img[src$="methods.svg"]){margin:2rem 0!important}
+div:has(> img[src$="methods.svg"]) img{width:100%;height:auto}
+.table-wrap{width:min(1080px,95vw);max-width:none;margin-left:50%;transform:translateX(-50%)}
+    .back-home{display:inline-flex;align-items:center;gap:.35rem;margin:0 0 1.4rem;font-size:.85rem;
+      color:#888;text-decoration:none;font-style:normal;letter-spacing:.01em}
+    .back-home:hover{color:#111;text-decoration:none}
+    .back-home .arw{transition:transform .15s ease}
+    .back-home:hover .arw{transform:translateX(-2px)}
+
+</style>
+<a class=back-home href='https://loganbolton.github.io/'><span class=arw>←</span> back to homepage</a>
+<h1>The Best Way to Make Your <span style='font-size:0.7em'>(Small)</span> Vision Language Model Smarter</h1>
+
+
+<!-- qwen3-vl-8b-instruct official: $0.18 input / $0.7 output -->
+ <!-- gemini-3.1-pro: $2 input / $12 output -->
+
+<p class=note>Vision language models (VLMs) are expensive. Open-source VLMs like Qwen are easy to run for free on consumer hardware, but are also <a href="https://arxiv.org/abs/2407.06581">notoriously unreliable</a>.</p>
+
+<p class=note>What's the best way to boost the accuracy of open-source vision language models? Average the outputs over multiple calls? Use another VLM judge to verify the output of the original model? Give the model a zoom tool to better inspect the image? 
+    
+<br><br>
+To find out, <b>I ran 13 open-source VLMs for over 500 GPU hours</b> with different test-time compute methods.
+
+<br>
+<p><i>TLDR: the best way to boost a VLM's accuracy is by using another VLM from a different model family to judge the original model's answers, but you're better off just using the biggest VLM you can fit on your GPU.</i></p>
+
+<!-- <br><br> -->
+<!-- If you want to just have the best performance possible: no problem, just pay the $$ for a frontier model. Those costs can add up quickly though. On top of that, if you care about retaining your own data, then you don't want to let another company see your data. 
+So that leaves us with open source, local models. In particular, I'm most interested in small, efficient models that can easily fit on a single consumer GPU (1B - 12B parameters) -->
+
+<!-- <br><br> -->
+<!-- Despite how frequently VLM judges are used in research and production, there is surprisingly little research studying how to make them as effective as possible. I am a fan of Lu et al's paper <a href='https://arxiv.org/abs/2512.02304'>When Does Verification Pay Off? A Closer Look at LLMs as Solution Verifiers</a>, which studies the best ways to use LLM judges on text-only tasks. -->
+
+<!-- I was curious about whether or not this finding would apply to VLM so <b>I spent over 300 GPU hours on my local RTX 3090 to generate these results</b> -->
+</p>
+<h2>Method</h2>
+
+
+<p class=note>I tested models across 4 different families: <svg viewBox='0 0 48 48' class='lg' aria-label='Google'><path fill='#4285F4' d='M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z'/><path fill='#34A853' d='M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z'/><path fill='#FBBC05' d='M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z'/><path fill='#EA4335' d='M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2C15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z'/></svg> Gemma at E2B, E4B and 12B, <span class='lgbg lg-qwen' title='Qwen'></span> Qwen3-VL at 2B, 4B and 8B, <span class='lgbg lg-gv' title='InternVL (InternLM)'></span> InternVL3.5 at 1B, 2B, 4B, 8B and 14B, <span class='lgbg lg-llava' title='LLaVA'></span> LLaVA-1.5 at 7B and 13B. Each model was run locally through vLLM on a single RTX 3090.</p>
+
+<h3>Benchmarks</h3>
+<p class=note>To test both simple perception and visual reasoning, I evaluated every model on both CharXiv and CountBenchQA. <a href='https://huggingface.co/datasets/princeton-nlp/CharXiv'>CharXiv</a> is a popular benchmark that tests the model's ability to logically interpret real-world scientific figures. <a href='https://huggingface.co/datasets/vikhyatk/CountBenchQA'>CountBenchQA</a> is a simple dataset where the model has to count the number of objects in an image. Despite the simplicity of the questions, smaller VLMs can <a href='https://arxiv.org/pdf/2604.10039'>surprisingly struggle</a> at counting everyday objects.</p>
+
+<div class=example-grid>
+    <figure>
+        <img src='figures/charxiv_ex.jpg' style='max-width:440px'>
+        <figcaption class='note figcap' style='max-width:440px'><b>CharXiv:</b> <i>"At epoch 60, which training method has a higher adversarial accuracy?"</i><br><b>Ground truth</b>: Accelerated DAT</figcaption>
+    </figure>
+    <figure>
+        <img src='figures/countbench_ex.jpg' style='max-width:230px'>
+        <figcaption class='note figcap' style='max-width:230px'><b>CountBench:</b> <i>"How many spoons are there in the image?"</i><br>
+            <b>Ground truth: </b>6</figcaption>
+    </figure>
+</div>
+
+<h3>Test-Time-Compute Methods</h3>
+
+
+<p class=note>The simplest method to increase the accuracy of VLMs is to run the same model N times and take the response that is generated most often (Maj@N). Similarly, you can ask the same question to multiple different models and take the most common answer across them for a cross-model majority vote.
+
+
+<p class=note>Another popular technique for improving VLMs is to use a separate VLM to judge the original model's answers. Following <a href='https://arxiv.org/abs/2512.02304'>Lu et al.</a>, I ran the VLM judge and the generation model in a loop where if the judge rejects an answer as incorrect, the generation model produces a fresh response to try again (with a maximum of 5 attempts). I tested the VLM judge under three different settings:</p>
+<ol class=note>
+    <li><b>Self</b> - model judges its own answers.</li>
+    <li><b>Cross</b> - judge from a different family.</li>
+    <li><b>Intra</b> - judge from the same family at a different size.</li>
+</ol>
+<p class=note>Finally, I also tried giving the model a tool to zoom into the image. There's surprisingly little information out there about how to run open-source models with this type of zoom tool and how much it changes the accuracy. To test this, I ran each model with a zoom tool multiple times with different maximum budgets of 2, 4 and 8 total crops and report the best accuracy. LLaVA was not trained to have multi-turn conversations with multiple images, so I did not test the zoom tool calls with it.</p>
+
+
+<div style='text-align:center;margin:1rem 4rem'><img src='figures/methods.svg'></div>
+
+<h2>Results</h2>
+<div class=table-wrap><table class='mx sum'><tr><th class=rowh>Solver Model</th><th>Base<br>Acc</th><th>Zoom<br>Tool</th><th>Avg Cross<br>Family judge</th><th>Maj@5</th></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-qwen' title='Qwen'></span><span>Qwen3-VL-2B-Instruct</span></span></th><td class=c>0.54</td><td class=c><span style='color:#1a7f37'>+4%</span></td><td class=c><span style='color:#1a7f37'>+5%</span></td><td class=c><span style='color:#1a7f37'><b>+9%</b></span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-qwen' title='Qwen'></span><span>Qwen3-VL-4B-Instruct</span></span></th><td class=c>0.63</td><td class=c><span style='color:#c0392b'>-4%</span></td><td class=c><span style='color:#1a7f37'>+2%</span></td><td class=c><span style='color:#1a7f37'><b>+6%</b></span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-qwen' title='Qwen'></span><span>Qwen3-VL-8B-Instruct</span></span></th><td class=c>0.65</td><td class=c><span style='color:#c0392b'>-4%</span></td><td class=c><span style='color:#1a7f37'>+2%</span></td><td class=c><span style='color:#1a7f37'><b>+4%</b></span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-gv' title='InternVL (InternLM)'></span><span>InternVL3.5-1B</span></span></th><td class=c>0.42</td><td class=c><span style='color:#c0392b'>-8%</span></td><td class=c><span style='color:#1a7f37'>+9%</span></td><td class=c><span style='color:#1a7f37'><b>+11%</b></span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-gv' title='InternVL (InternLM)'></span><span>InternVL3.5-2B</span></span></th><td class=c>0.52</td><td class=c><span style='color:#1a7f37'>+3%</span></td><td class=c><span style='color:#1a7f37'>+5%</span></td><td class=c><span style='color:#1a7f37'><b>+10%</b></span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-gv' title='InternVL (InternLM)'></span><span>InternVL3.5-4B</span></span></th><td class=c>0.61</td><td class=c><span style='color:#c0392b'>-5%</span></td><td class=c><span style='color:#1a7f37'>+3%</span></td><td class=c><span style='color:#1a7f37'><b>+4%</b></span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-gv' title='InternVL (InternLM)'></span><span>InternVL3.5-8B</span></span></th><td class=c>0.63</td><td class=c><span style='color:#c0392b'>-31%</span></td><td class=c><span style='color:#1a7f37'><b>+2%</b></span></td><td class=c><span style='color:#1a7f37'>+1%</span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-gv' title='InternVL (InternLM)'></span><span>InternVL3.5-14B</span></span></th><td class=c>0.64</td><td class=c><span style='color:#c0392b'>-1%</span></td><td class=c><span style='color:#1a7f37'>+2%</span></td><td class=c><span style='color:#1a7f37'><b>+4%</b></span></td></tr><tr><th class=rowh><span class=mdl><svg viewBox='0 0 48 48' class='lg' aria-label='Google'><path fill='#4285F4' d='M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z'/><path fill='#34A853' d='M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z'/><path fill='#FBBC05' d='M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z'/><path fill='#EA4335' d='M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2C15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z'/></svg><span>gemma-4-E2B-it</span></span></th><td class=c>0.44</td><td class=c><span style='color:#1a7f37'>+8%</span></td><td class=c><span style='color:#1a7f37'>+5%</span></td><td class=c><span style='color:#1a7f37'><b>+8%</b></span></td></tr><tr><th class=rowh><span class=mdl><svg viewBox='0 0 48 48' class='lg' aria-label='Google'><path fill='#4285F4' d='M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z'/><path fill='#34A853' d='M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z'/><path fill='#FBBC05' d='M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z'/><path fill='#EA4335' d='M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2C15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z'/></svg><span>gemma-4-E4B-it</span></span></th><td class=c>0.54</td><td class=c><span style='color:#1a7f37'>+4%</span></td><td class=c><span style='color:#1a7f37'>+2%</span></td><td class=c><span style='color:#1a7f37'><b>+5%</b></span></td></tr><tr><th class=rowh><span class=mdl><svg viewBox='0 0 48 48' class='lg' aria-label='Google'><path fill='#4285F4' d='M45.12 24.5c0-1.56-.14-3.06-.4-4.5H24v8.51h11.84c-.51 2.75-2.06 5.08-4.39 6.64v5.52h7.11c4.16-3.83 6.56-9.47 6.56-16.17z'/><path fill='#34A853' d='M24 46c5.94 0 10.92-1.97 14.56-5.33l-7.11-5.52c-1.97 1.32-4.49 2.1-7.45 2.1-5.73 0-10.58-3.87-12.31-9.07H4.34v5.7C7.96 41.07 15.4 46 24 46z'/><path fill='#FBBC05' d='M11.69 28.18C11.25 26.86 11 25.45 11 24s.25-2.86.69-4.18v-5.7H4.34C2.85 17.09 2 20.45 2 24s.85 6.91 2.34 9.88l7.35-5.7z'/><path fill='#EA4335' d='M24 10.75c3.23 0 6.13 1.11 8.41 3.29l6.31-6.31C34.91 4.18 29.93 2 24 2C15.4 2 7.96 6.93 4.34 14.12l7.35 5.7c1.73-5.2 6.58-9.07 12.31-9.07z'/></svg><span>gemma-4-12B-it</span></span></th><td class=c>0.77</td><td class=c><span style='color:#1a7f37'>+1%</span></td><td class=c><span style='color:#1a7f37'>+0%</span></td><td class=c><span style='color:#1a7f37'><b>+1%</b></span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-llava' title='LLaVA'></span><span>llava-1.5-7b-hf</span></span></th><td class=c>0.25</td><td class=na>NA</td><td class=c><span style='color:#1a7f37'><b>+26%</b></span></td><td class=c><span style='color:#1a7f37'>+6%</span></td></tr><tr><th class=rowh><span class=mdl><span class='lgbg lg-llava' title='LLaVA'></span><span>llava-1.5-13b-hf</span></span></th><td class=c>0.27</td><td class=na>NA</td><td class=c><span style='color:#1a7f37'><b>+26%</b></span></td><td class=c><span style='color:#1a7f37'>+12%</span></td></tr><tr class=avgrow><th class=rowh>average</th><td class=c>0.53 &plusmn; 0.2</td><td class=c>-3 &plusmn; 10.4%</td><td class=c>+7 &plusmn; 8.8%</td><td class=c>+6 &plusmn; 3.6%</td></tr></table></div>
+<p class='note figcap' style='text-align:center;margin:.2rem auto .7rem'>Relative change in accuracy over the base model, averaged across CharXiv and CountBenchQA.</p>
+<!-- <h4><i>Baseline - Raw Accuracy</i></h4>
+<p class=note>In general across model sizes, Gemma is the best with Qwen and InternVL closely behind. I included LLaVA as a sanity baseline and because it is one of my favorite VLMs. However, its accuracy is... not great. 
+</p> -->
+
+<h4><i>Zoom Tool</i></h4>
+<p class=note>
+
+Small models aren't good at tool usage. Qwen and InternVL frequently mess up the format of the tool call, and even when they do it correctly, they zoom in to irrelevant parts of the image. Gemma benefits the most from the zoom tool<sup><a href='#fn-zoom' class=fnref>1</a></sup>, but the performance gains are minimal.
+
+</p>
+
+<details class=card>
+<summary style='cursor:pointer;font-weight:600'>Click to see an example of the zoom tool</summary>
+<p class=note>In this example, InternVL3_5-8B zooms in to the incorrect region in the image. Then it hallucinates that the crop shows the correct "hopper:stand" sublpot and confidently gives the wrong answer</p>
+<div class=rollout-panel>
+    <div class=rollout-grid>
+        <div class=rollout-media>
+            <figure>
+                <img class=original-img src='figures/internvl_hopper_stand_full.jpg' alt='CharXiv chart for the hopper stand question'>
+            </figure>
+        </div>
+        <p class=note><b>Question:</b> <i>"For the subplot labeled hopper:stand, what is the maximum episode return approximately achieved at 10h?"</i></p>
+        <div class=rollout-step>
+            <b>Model reasoning</b>
+            <pre>Okay, let's take a closer look at the 'hopper:stand' subplot to determine the maximum episode return at around 10 hours. I'll start by examining the graph where the x-axis represents learner walltime and the y-axis shows episode return.
+
+Let me zoom in on the 'hopper:stand' subplot focusing on the area around 10 hours.</pre>
+        </div>
+        <div class='rollout-step tool'>
+            <b>Tool call</b>
+            <pre>&lt;tool_call&gt;
+{"name": "zoom", "arguments": {"box": [0.35, 0.4, 0.45, 0.6]}}
+&lt;/tool_call&gt;</pre>
+        </div>
+        <div class=rollout-media>
+            <figure>
+                <img class=zoom-img src='figures/internvl_hopper_stand_zoom.jpg' alt='InternVL zoom crop from the hopper stand subplot'>
+            </figure>
+        </div>
+        <div class=rollout-step>
+            <b>Model response after zoom</b>
+            <pre>The zoomed-in image shows the 'hopper:stand' subplot around the 10-hour mark. From the graph, the Distributed: 16 actors line reaches its peak near this time. The episode return appears to be around 800 based on the y-axis scaling.
+
+Given this observation, the maximum episode return approximately achieved at 10 hours is likely close to 800.
+
+Final Answer: \boxed{800}</pre>
+        </div>
+        <p class=note><b>Final answer:</b> <code>800</code> <p style="color: red;"><i>Incorrect (Ground Truth: 750)</i></p></p>
+    </div>
+</div>
+</details>
+
+
+
+<h4><i>VLM Judge</i></h4>
+<p class=note>
+Using a VLM judge gives the highest average gain, but also has a very high variance. The small 2 billion parameter models and LLaVA benefit the most from an external judge that can easily point out their hallucinations, but the larger models don't gain much by having smaller models verify their work.
+</p>
+
+<p class=note>
+There's also a large amount of variance across different judges. Having a model from another VLM family be the judge can significantly increase the accuracy when compared to self judging or having another model of the same family judge the answer. This is supported by <a href="https://arxiv.org/abs/2605.30713">Tong et al.</a> who find that VLM judges work best when their predictions are less correlated, since models that make different mistakes provide more useful
+signals.
+</p>
+
+<figure class=plot-wrap>
+    <img src='figures/both_datasets_actual_gain_by_regime.png' style='max-width:480px'>
+    <figcaption class='note figcap'>The best judge for a model is usually a model from a different family.</figcaption>
+</figure>
+
+
+<h3>Can you predict how well a judge will work?</h3>
+<p class=note>
+    Figuring out the best judge / verifier combo for a task would be very expensive if you wanted to brute force through every combination. By estimating the gain from a cheap static judge grid, we can predict what the final rejection-sampling performance should be. <a href='https://arxiv.org/abs/2512.02304'>Lu et al.</a> address this problem by introducing a metric called <b>verifier gain</b>. After determining the precision of the judge through its false positive rate and true positive rate, we can estimate how well the judge will do. 
+</p>
+
+<div class=equation>
+    <div class=eq>Verifier Gain = Precision of the judge - Accuracy of the solver</div>
+    <!-- <div class=sub>where <i>s</i> is the solver, <i>j</i> is the judge, and <i>d</i> is the dataset</div> -->
+</div>
+
+
+<figure class=plot-wrap>
+    <img src='figures/avg_s51_report.png' style='max-width:440px' alt='Predicted gain compared with actual gain for VLM judge rejection sampling'>
+    <figcaption class='note figcap'>The judge's effectiveness at improving the accuracy can be easily estimated from a few samples.</figcaption>
+</figure>
+
+<h4><i>Majority Vote</i></h4>
+<p class=note>
+Taking the most common answer over 5 runs increases accuracy by a solid 6%. It's by far the most consistent method as well given that the increase in accuracy does not vary as much with model size like it does for the VLM judge.
+</p>
+
+<h4><i>Cross-Model Majority Vote</i></h4>
+
+<p class=note>
+If majority vote over one model's samples helps, what about a majority vote across <i>all</i> the models at once? Interestingly, sampling from the best and the worst models and averaging over their answers still does worse than just using Gemma-4-12B even when you average over all 13 model answers.
+</p>
+
+<figure class=plot-wrap>
+    <img src='figures/tradeoff/avg_model_majority.png' style='max-width:560px' alt='Accuracy of a cross-model majority vote averaged over CharXiv and CountBenchQA as more models join the ensemble'>
+    <figcaption class='note figcap'>Averaging over multiple model's answers underperforms the best model's average accuracy.</figcaption>
+</figure>
+
+<h3>Compute Tradeoffs</h3>
+
+<p class=note>
+The whole point of using a small VLM is that it is efficient to run. Is the added cost of test-time compute even worth it? Interestingly, just taking the default response of a strong model dominates the Pareto frontier of the compute cost to accuracy tradeoff.<sup><a href='#fn-compute' class=fnref>2</a></sup> In almost all situations, the best course of action is to use a bigger model rather than to use a smaller model + test-time compute. 
+</p>
+<figure class=plot-wrap>
+    <img src='figures/tradeoff/avg_combined_tradeoff.png' style='max-width:672px' alt='Accuracy versus average inference compute per query for each strategy'>
+    <figcaption class='note figcap'>Using a strong VLM with no test time compute dominates the Pareto frontier. Test time compute methods have similar gains relative to the compute cost.</figcaption>
+</figure>
+
+<h2>Conclusion</h2>
+
+<p class=note>
+    Smaller models are not currently strong enough to reliably use a zoom tool. Using a VLM judge can boost accuracy, but make sure that it is from a different model family than the original solver model. The simplest and most consistent way to improve accuracy is to just have the same model answer multiple times. However, using the best model you can fit on your GPU is still the best bang for your buck. 
+    
+    <br><br>
+    I uploaded the solver, judge, rejection-sampling, self-consistency, and agentic-zoom traces to a public Hugging Face dataset. This could be useful fine-tuning data for future VLMs if anyone would like to use it. 😃
+
+    <br><br>
+    If you have any questions or comments, feel free to reach out to me on X or email! 
+</p>
+
+<section class=footnotes>
+    <ol>
+        <li id=fn-zoom>To try to keep it fair, I gave every model the <a href='https://github.com/LoganBolton/vlm-verification/blob/main/prompts/agentic_vision_prompt.md'>same zoom-tool prompt</a>. Gemma struggled with that shared format, so for Gemma I switched to Google's <a href='https://ai.google.dev/gemma/docs/capabilities/function-calling'>recommended function-calling format</a>.</li>
+
+        <li id=fn-compute>Rather than measuring wall-clock time, I estimate total inference compute from the total number of active tokens processed (2 &times; params &times; tokens) for the LLM and (2 &times; params &times; patches) for the image encoder.</li>
+    </ol>
+</section>
+
+<footer class=site-footer>
+    <div class=contact-links>
+        <a href='https://huggingface.co/datasets/loganbolton/vlm-verification-logs'><span class=ico><img src='figures/huggingface_logo.png' alt='Hugging Face'></span><span>Dataset</span></a>
+        <a href='https://github.com/LoganBolton/vlm-verification'><span class=ico><svg viewBox='0 0 24 24' aria-label='GitHub'><path fill='currentColor' d='M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18.92-.26 1.9-.38 2.88-.39.98.01 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z'/></svg></span><span>Project Repo</span></a>
+        <a href='https://loganbolton.github.io/'><span class=ico>✦</span><span>Homepage</span></a>
+        <a href='https://x.com/septisum'><span class=ico><svg viewBox='0 0 24 24' aria-label='X'><path fill='currentColor' d='M18.9 1.5h3.3l-7.2 8.2 8.5 11.3h-6.6l-5.2-6.8-6 6.8H1.4l7.7-8.8L.9 1.5h6.8l4.7 6.2 5.5-6.2Zm-1.2 18.1h1.8L7.1 3.4H5.2l12.5 16.2Z'/></svg></span><span>Social Media</span></a>
+        <a href='mailto:loganbolton101@gmail.com'><span class=ico><svg viewBox='0 0 24 24' aria-label='Email'><path fill='none' stroke='currentColor' stroke-width='1.8' stroke-linejoin='round' d='M3.5 6.5h17v11h-17z'/><path fill='none' stroke='currentColor' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round' d='m4 7 8 6 8-6'/></svg></span><span>Email</span></a>
+    </div>
+</footer>
