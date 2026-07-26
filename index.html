@@ -124,6 +124,10 @@
             max-width: 480px;
         }
 
+        .mobile-break {
+            display: none;
+        }
+
         .hero-image img {
             width: 100%;
             max-width: 270px;
@@ -312,7 +316,7 @@
             grid-template-columns: 3fr 2fr;
             gap: 2rem;
             margin-bottom: 1.5rem;
-            align-items: start;
+            align-items: center;
         }
 
         .project-content h3 {
@@ -458,6 +462,10 @@
                 margin-right: auto;
             }
 
+            .mobile-break {
+                display: inline;
+            }
+
             .project-item {
                 margin-bottom: 2rem;
             }
@@ -479,6 +487,33 @@
                 max-width: 250px;
                 margin: 0 auto;
                 padding: 1rem;
+            }
+
+            #papers .project-image {
+                display: none;
+            }
+
+            #projects .project-item {
+                grid-template-columns: 1.35fr 1fr;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            #projects .project-image {
+                order: 0;
+                max-width: none;
+                padding: 0;
+                text-align: right;
+            }
+
+            #projects .project-image img {
+                width: 100%;
+                margin-left: auto;
+            }
+
+            .contact-image {
+                max-width: 360px;
+                margin: 0 auto;
             }
         }
     </style>
@@ -505,7 +540,7 @@
         <section class="hero">
             <div class="hero-text">
                 <h1>Logan Bolton</h1>
-                <p>MSCS student at NYU Courant <br>Machine Learning Intern @ Los Alamos National Lab
+                <p>MSCS student at NYU Courant <br>Machine Learning Intern <br class="mobile-break">@ Los Alamos National Lab
                     <br><br>Interested in AI/ML and Computer Vision</p>
             </div>
             <div class="hero-image">
@@ -710,9 +745,7 @@
                     <h3><a href="assets/graph_project.pdf" target="_blank">Reverse Engineering Information from LLM Attention Values</a></h3>
                     <p class="project-description">
                         For the final project of my graph theory class, I trained a model to reconstruct the adjacency
-                        matrix of a graph based off the attention values of an LLM. This project demonstrates an example
-                        of how the attention map patterns of LLMs can be used to help interpret the inner workings of
-                        language models.
+                        matrix of a graph based off the attention values of an LLM, demonstrating how the attention patterns of LLMs can be used to help interpret their inner workings.
                     </p>
                     <div class="project-links">
                         <a href="assets/graph_project.pdf" target="_blank">Report</a>
