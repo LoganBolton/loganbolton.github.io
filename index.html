@@ -309,6 +309,10 @@
             transition: transform 0.5s ease;
         }
 
+        .contact-email {
+            font-family: 'SFMono-Regular', 'Menlo', 'Consolas', monospace;
+        }
+
 
         /* Projects/Papers */
         .project-item {
@@ -761,20 +765,19 @@
         </section>
 
         <!-- Contact -->
-        <section id="contact">
+        <section id="contact" style="padding-top: 3rem;">
             <div class="section-header">
                 <h2 class="section-title">Contact</h2>
             </div>
 
-            <div class="contact-grid">
+            <div class="contact-grid" style="grid-template-columns: 1fr;">
                 <div class="contact-content">
                     <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--secondary-text);">Have a question or
-                        want to work together? Feel free to send me an email:</p>
-                    <a href="mailto:loganbolton101@gmail.com" class="btn">loganbolton101@gmail.com</a>
+                        want to work together? Email me at: <span class="contact-email">loganbolton101@gmail.com</span></p>
                 </div>
-                <div class="contact-image">
+                <!-- <div class="contact-image">
                     <img src="assets/images/whiteboard.jpg" alt="Whiteboard" loading="lazy">
-                </div>
+                </div> -->
             </div>
         </section>
 
