@@ -126,10 +126,9 @@
 
         .hero-image img {
             width: 100%;
-            max-width: 300px;
+            max-width: 270px;
             height: auto;
             border-radius: 4px;
-            filter: grayscale(100%);
             transition: transform 0.5s ease;
             display: block;
             margin: 0 auto;
@@ -225,7 +224,8 @@
             align-items: center;
             gap: 0.75rem;
             padding: 0.75rem 1rem;
-            margin-bottom: 3rem;
+            margin-top: -1.5rem;
+            margin-bottom: 4.5rem;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             background-color: #fafafa;
@@ -294,7 +294,7 @@
         /* Contact Section */
         .contact-grid {
             display: grid;
-            grid-template-columns: 3fr 2fr;
+            grid-template-columns: 2.4fr 2.6fr;
             gap: 2rem;
             align-items: center;
         }
@@ -302,7 +302,6 @@
         .contact-image img {
             width: 100%;
             border-radius: 4px;
-            filter: grayscale(100%);
             transition: transform 0.5s ease;
         }
 
@@ -361,6 +360,10 @@
             filter: grayscale(100%);
         }
 
+        #papers .project-image img {
+            width: 64%;
+        }
+
         /* Experience List */
         .experience-item {
             border-bottom: 1px solid var(--border-color);
@@ -383,7 +386,7 @@
         .exp-details h3 {
             font-size: 1.4rem;
             font-family: 'Inter', sans-serif;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0;
         }
 
         .company {
@@ -511,17 +514,14 @@
         </section>
 
         <!-- About -->
-        <section id="about" style="padding: 1.5rem 0;">
+        <section id="about" style="padding: 3rem 0 1.5rem;">
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
             </div>
-            <div class="about-grid">
-                <div class="about-img">
-                    <img src="assets/images/whiteboard.jpg" alt="Whiteboard" loading="lazy">
-                </div>
+            <div class="about-grid" style="grid-template-columns: 1fr;">
                 <div class="about-content">
-                    <p>Graduated from Auburn University with a B.S. in Computer Science and a minor in Statistics. Beginning an
-                    M.S. in Computer Science at NYU Courant in Fall 2026.</p>
+                    <p>- Graduated from Auburn University with a B.S. in Computer Science and a minor in Statistics. <br>
+                    - Beginning an M.S. in Computer Science at NYU Courant in Fall 2026.</p>
                     <!-- M.S. in Computer Science at NYU Courant in Fall 2026. Experienced with Python, PyTorch, SQL, C#, JavaScript, and more.</p> -->
                     <p class="about-callout"><b>I am currently looking for AI/ML related Summer 2027 internships. Feel free to reach out!</b></p>
                     <div class="about-buttons">
@@ -740,7 +740,7 @@
                     <a href="mailto:loganbolton101@gmail.com" class="btn">loganbolton101@gmail.com</a>
                 </div>
                 <div class="contact-image">
-                    <img src="assets/images/IMG_2188_low_res.jpg" alt="Servers" loading="lazy">
+                    <img src="assets/images/whiteboard.jpg" alt="Whiteboard" loading="lazy">
                 </div>
             </div>
         </section>
