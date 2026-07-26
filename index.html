@@ -219,15 +219,59 @@
             font-size: 2rem;
         }
 
+        /* New announcement banner */
+        .new-banner {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: #fafafa;
+            font-size: 0.95rem;
+            color: var(--text-color);
+        }
+
+        .new-banner .new-badge {
+            flex-shrink: 0;
+            font-size: 0.7rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+            background-color: #eef4fb;
+            color: #6b8bb5;
+        }
+
+        .new-banner a {
+            font-weight: 600;
+            border-bottom: 1px solid var(--text-color);
+        }
+
+        .new-banner a:hover {
+            color: var(--secondary-text);
+            border-bottom-color: var(--secondary-text);
+        }
+
         /* About Section */
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: 0.75fr 1.25fr;
             gap: 2rem;
+            align-items: center;
+        }
+
+        .about-img {
+            overflow: hidden;
+            border-radius: 4px;
         }
 
         .about-img img {
-            width: 100%;
+            display: block;
+            width: 111.11%;
+            margin-left: -11.11%;
             border-radius: 4px;
             filter: grayscale(100%);
             transition: transform 0.5s ease;
@@ -440,7 +484,7 @@
 <body>
 
     <div class="container">
-        <header>
+        <!-- <header>
             <nav>
                 <div class="logo">LB</div>
                 <div class="nav-links">
@@ -450,7 +494,9 @@
                     <a href="#contact">Contact</a>
                 </div>
             </nav>
-        </header>
+        </header> -->
+
+        <div style="height: 2.5rem;"></div>
 
         <!-- Hero -->
         <section class="hero">
@@ -465,7 +511,7 @@
         </section>
 
         <!-- About -->
-        <section id="about">
+        <section id="about" style="padding: 1.5rem 0;">
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
             </div>
@@ -474,8 +520,9 @@
                     <img src="assets/images/whiteboard.jpg" alt="Whiteboard" loading="lazy">
                 </div>
                 <div class="about-content">
-                    <p>Graduated from Auburn University in Spring 2026 with a B.S. in Computer Science and a minor in Statistics. Beginning an
-                    M.S. in Computer Science at NYU Courant in Fall 2026. Experienced with Python, PyTorch, SQL, C#, JavaScript, and more.</p>
+                    <p>Graduated from Auburn University with a B.S. in Computer Science and a minor in Statistics. Beginning an
+                    M.S. in Computer Science at NYU Courant in Fall 2026.</p>
+                    <!-- M.S. in Computer Science at NYU Courant in Fall 2026. Experienced with Python, PyTorch, SQL, C#, JavaScript, and more.</p> -->
                     <p class="about-callout"><b>I am currently looking for AI/ML related Summer 2027 internships. Feel free to reach out!</b></p>
                     <div class="about-buttons">
                         <div class="social-icons">
@@ -492,8 +539,12 @@
 
         <!-- Papers -->
         <section id="papers" style="margin-top: -0.5rem;">
+            <div class="new-banner">
+                <span class="new-badge">New</span>
+                <span>Blog Post &mdash; <a href="blog/vlm-verification/" target="_blank">The Best Way to Make Your (Small) Vision Language Model Smarter</a></span>
+            </div>
             <div class="section-header">
-                <h2 class="section-title">Selected Papers</h2>
+                <h2 class="section-title">Research</h2>
             </div>
             <!-- Paper 1 -->
             <div class="project-item">
@@ -579,13 +630,12 @@
             </div>
 
             <div class="experience-item">
-                <div class="exp-date">Summer 2024 - Present</div>
+                <div class="exp-date">Summer 2024 - Spring 2026</div>
                 <div class="exp-details">
                     <h3>Undergraduate AI Researcher</h3>
                     <span class="company">Explainable AI Lab - Auburn University</span>
-                    <p>Former undergraduate researcher in Dr. Anh Nguyen's Explainable AI lab. Co-authored three different papers on understanding the strengths and weaknesses of
-                        multimodal LLMs/image-editing models and improving the reliability and interpretability of
-                        LLMs.
+                    <p>First-authored three papers on understanding and improving
+                        multimodal LLMs/image-editing models in Dr. Anh Nguyen's Explainable AI lab.
                         <!-- This work led to me becoming an Auburn Undergraduate Research Fellow and receiving an
                         honorable mention for the Outstanding Undergraduate Researcher Award from the Computing Research
                         Association.</p> -->
