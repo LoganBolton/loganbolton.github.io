@@ -21,7 +21,7 @@
     gtag('config', 'G-20MSJ79173');
     </script>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
         rel="stylesheet">
     <script src="https://kit.fontawesome.com/5cd1dd5176.js" crossorigin="anonymous" defer></script>
     <style>
@@ -346,6 +346,26 @@
             color: var(--secondary-text);
         }
 
+        .project-authors {
+            font-size: 0.85rem;
+            font-style: italic;
+            color: var(--secondary-text);
+            margin-bottom: 0.75rem;
+            line-height: 1.5;
+        }
+
+        .project-authors .me {
+            font-weight: 650;
+            color: #4c5658;
+        }
+
+        .project-authors .equal-note {
+            display: block;
+            font-size: 0.78rem;
+            opacity: 0.75;
+            margin-top: 0.15rem;
+        }
+
         .project-description {
             color: var(--secondary-text);
             margin-bottom: 1rem;
@@ -590,9 +610,12 @@
                 <div class="project-content">
                     <span class="meta-tag">ACCV 2024 - Oral</span>
                     <h3><a href="https://vlmsareblind.github.io/" target="_blank">Vision Language Models are Blind</a></h3>
+                    <p class="project-authors">
+                        Pooyan Rahmanzadehgervi*, <span class="me">Logan Bolton</span>*, Mohammad Reza Taesiri, Anh Totti Nguyen
+                    </p>
                     <p class="project-description">
                         Analyzed how and why VLMs such as GPT-4o have high scores on multimodal benchmarks, but often fail on extremely simple, abstract vision tasks.<br><br>
-                        <b>This work has been featured by OpenAI, Google DeepMind, ByteDance, and has been cited 250+ times.</b>
+                        <b>This work has been featured by OpenAI, Google DeepMind, and ByteDance and has been cited 250+ times.</b>
                     </p>
                     <div class="project-links">
                         <a href="https://vlmsareblind.github.io/" target="_blank">Webpage</a>
@@ -611,6 +634,9 @@
                 <div class="project-content">
                     <span class="meta-tag">TMLR 2026</span>
                     <h3><a href="https://highlightedchainofthought.github.io/" target="_blank">HoT: Highlighted Chain of Thought for Referencing Supporting Facts from Inputs</a></h3>
+                    <p class="project-authors">
+                        Tin Nguyen*, <span class="me">Logan Bolton</span>*, Mohammad Reza Taesiri, Trung Bui, Anh Totti Nguyen
+                    </p>
                     <p class="project-description">
                         Explored how allowing LLMs to highlight their chain of thought to visually link
                         information in the question and answer can increase LLM accuracy while also improving user
@@ -634,6 +660,9 @@
                 <div class="project-content">
                     <span class="meta-tag">WACV 2026</span>
                     <h3><a href="https://psrdataset.github.io/" target="_blank">Understanding Generative AI Capabilities in Everyday Image Editing Tasks</a></h3>
+                    <p class="project-authors">
+                        Brandon Collins*, Mohammad Reza Taesiri*, <span class="me">Logan Bolton</span>*, Viet Dac Lai, Franck Dernoncourt, Trung Bui, Anh Totti Nguyen
+                    </p>
                     <p class="project-description">
                         Native multi-modal image-editing models like Nano Banana have shown an impressive ability
                         to edit images through natural language prompts. This paper examines the strengths and
@@ -696,7 +725,7 @@
                 <div class="exp-details">
                     <h3>Machine Learning Intern</h3>
                     <span class="company">Corvid Technologies - Huntsville, AL</span>
-                    <p>Developed deep learning models to predict radar responses from 3D point clouds. Built roto-translation equivariant graph neural networks to leverage the geometric structure of point cloud data for more accurate signal prediction.</p>
+                    <p>Developed deep learning models to predict radar responses from 3D point clouds using roto-translation equivariant graph neural networks.</p>
                 </div>
             </div>
 
