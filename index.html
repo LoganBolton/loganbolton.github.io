@@ -229,7 +229,7 @@
             gap: 0.75rem;
             padding: 0.75rem 1rem;
             margin-top: -1.5rem;
-            margin-bottom: 4.5rem;
+            margin-bottom: 7.5rem;
             border: 1px solid var(--border-color);
             border-radius: 4px;
             background-color: #fafafa;
@@ -388,8 +388,19 @@
             filter: grayscale(100%);
         }
 
+        /* Paper thumbnails: centered and capped to a common box so that
+           portrait and landscape figures read as the same size. */
+        #papers .project-image {
+            text-align: center;
+            padding-right: 3rem;
+            /* nudge left without shrinking the images the padding would clamp */
+            transform: translateX(-30px);
+        }
+
         #papers .project-image img {
-            width: 64%;
+            width: auto;
+            max-width: min(280px, 100%);
+            max-height: 224px;
         }
 
         /* Experience List */
@@ -573,7 +584,7 @@
         </section>
 
         <!-- About -->
-        <section id="about" style="padding: 3rem 0 1.5rem;">
+        <section id="about" style="padding: 3.5rem 0 2rem;">
             <div class="section-header">
                 <h2 class="section-title">About Me</h2>
             </div>
@@ -597,7 +608,7 @@
         </section>
 
         <!-- Papers -->
-        <section id="papers" style="margin-top: -0.5rem;">
+        <section id="papers" style="margin-top: 0.5rem;">
             <div class="new-banner">
                 <span class="new-badge">New</span>
                 <span>Blog Post &mdash; <a href="blog/vlm-verification/" target="_blank">The Best Way to Make Your (Small) Vision Language Model Smarter</a></span>
@@ -605,30 +616,56 @@
             <div class="section-header">
                 <h2 class="section-title">Research</h2>
             </div>
-            <!-- Paper 1 -->
+            <!-- Paper 4 -->
             <div class="project-item">
                 <div class="project-content">
-                    <span class="meta-tag">ACCV 2024 - Oral</span>
-                    <h3><a href="https://vlmsareblind.github.io/" target="_blank">Vision Language Models are Blind</a></h3>
+                    <span class="meta-tag">EMNLP 2026 - Main</span>
+                    <h3><a href="https://sketchvlm.github.io/" target="_blank">SketchVLM: Vision-Language Models Can Annotate Images to Explain Thoughts and Guide Users</a></h3>
                     <p class="project-authors">
-                        Pooyan Rahmanzadehgervi*, <span class="me">Logan Bolton</span>*, Mohammad Reza Taesiri, Anh Totti Nguyen
+                        Brandon Collins, <span class="me">Logan Bolton</span>, Hung Huy Nguyen, Mohammad Reza Taesiri, Trung Bui, Anh Totti Nguyen
                     </p>
                     <p class="project-description">
-                        Analyzed how and why VLMs such as GPT-4o have high scores on multimodal benchmarks, but often fail on extremely simple, abstract vision tasks.<br><br>
-                        <b>This work has been featured by OpenAI, Google DeepMind, and ByteDance and has been cited 250+ times.</b>
+                        Created a training-free, model-agnostic framework that enables VLMs to draw directly
+                        on an image to visually explain their answers.
                     </p>
                     <div class="project-links">
-                        <a href="https://vlmsareblind.github.io/" target="_blank">Webpage</a>
-                        <a href="https://arxiv.org/pdf/2407.06581" target="_blank">PDF</a>
+                        <a href="https://sketchvlm.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/abs/2604.22875" target="_blank">PDF</a>
+                        <a href="https://sketch-vlm-demo.vercel.app/" target="_blank">Demo</a>
+                        <a href="https://github.com/Brandon-Collins7/sketchvlm" target="_blank">Code</a>
                     </div>
                 </div>
                 <div class="project-image">
-                    <a href="https://vlmsareblind.github.io/" target="_blank">
-                        <img src="./assets/images/LLMsAreBlind.png" alt="VLMs are Blind" style="filter: none;" loading="lazy">
+                    <a href="https://sketchvlm.github.io/" target="_blank">
+                        <img src="./assets/images/sketchvlm.gif" alt="SketchVLM demo" style="filter: none; border-radius: 6px;" loading="lazy">
                     </a>
                 </div>
             </div>
 
+
+            <!-- Paper 2 -->
+            <div class="project-item">
+                <div class="project-content">
+                    <span class="meta-tag">WACV 2026</span>
+                    <h3><a href="https://psrdataset.github.io/" target="_blank">Understanding Generative AI Capabilities in Everyday Image Editing Tasks</a></h3>
+                    <p class="project-authors">
+                        Brandon Collins*, Mohammad Reza Taesiri*, <span class="me">Logan Bolton</span>*, Viet Dac Lai, Franck Dernoncourt, Trung Bui, Anh Totti Nguyen
+                    </p>
+                    <p class="project-description">
+                        Evaluated the strengths and weaknesses of native multi-modal image-editing models like Nano Banana when compared directly against human editors.
+                    </p>
+                    <div class="project-links">
+                        <a href="https://psrdataset.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/abs/2505.16181" target="_blank">PDF</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="https://psrdataset.github.io/" target="_blank">
+                        <img src="./assets/images/understanding_ai_cover_transparent.png" alt="Image Editing AI" style="filter: none; box-shadow: none; max-width: min(292px, 85%); max-height: 254px;" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            
             <!-- Paper 3 -->
             <div class="project-item">
                 <div class="project-content">
@@ -649,41 +686,41 @@
                 </div>
                 <div class="project-image">
                     <a href="https://highlightedchainofthought.github.io/" target="_blank">
-                        <img src="./assets/images/hot.png" alt="Highlighted Chain of Thought" style="filter: none;" loading="lazy">
+                        <img src="./assets/images/hot_teaser_transparent.png" alt="Highlighted Chain of Thought" style="filter: none; box-shadow: none;" loading="lazy">
                     </a>
                 </div>
             </div>
 
-
-            <!-- Paper 2 -->
+            <!-- Paper 1 -->
             <div class="project-item">
                 <div class="project-content">
-                    <span class="meta-tag">WACV 2026</span>
-                    <h3><a href="https://psrdataset.github.io/" target="_blank">Understanding Generative AI Capabilities in Everyday Image Editing Tasks</a></h3>
+                    <span class="meta-tag">ACCV 2024 - Oral</span>
+                    <h3><a href="https://vlmsareblind.github.io/" target="_blank">Vision Language Models are Blind</a></h3>
                     <p class="project-authors">
-                        Brandon Collins*, Mohammad Reza Taesiri*, <span class="me">Logan Bolton</span>*, Viet Dac Lai, Franck Dernoncourt, Trung Bui, Anh Totti Nguyen
+                        Pooyan Rahmanzadehgervi*, <span class="me">Logan Bolton</span>*, Mohammad Reza Taesiri, Anh Totti Nguyen
                     </p>
                     <p class="project-description">
-                        Native multi-modal image-editing models like Nano Banana have shown an impressive ability
-                        to edit images through natural language prompts. This paper examines the strengths and
-                        weaknesses of these models when pitted against one-to-one matchups against human editors.
+                        Analyzed how and why VLMs such as GPT-4o have high scores on multimodal benchmarks, but often fail on extremely simple, abstract vision tasks.<br><br>
+                        <b>This work has been featured by OpenAI, Google DeepMind, and ByteDance and has been cited 250+ times.</b>
                     </p>
                     <div class="project-links">
-                        <a href="https://psrdataset.github.io/" target="_blank">Webpage</a>
-                        <a href="https://arxiv.org/abs/2505.16181" target="_blank">PDF</a>
+                        <a href="https://vlmsareblind.github.io/" target="_blank">Webpage</a>
+                        <a href="https://arxiv.org/pdf/2407.06581" target="_blank">PDF</a>
                     </div>
                 </div>
                 <div class="project-image">
-                    <a href="https://psrdataset.github.io/" target="_blank">
-                        <img src="./assets/images/imageedit.png" alt="Image Editing AI" style="filter: none;" loading="lazy">
+                    <a href="https://vlmsareblind.github.io/" target="_blank">
+                        <img src="./assets/images/blindtest_overlap.jpg" alt="VLMs are Blind" style="filter: none;" loading="lazy">
                     </a>
                 </div>
             </div>
+
+
 
         </section>
 
         <!-- Experience -->
-        <section id="experience">
+        <section id="experience" style="padding-top: 3.5rem;">
             <div class="section-header">
                 <h2 class="section-title">Experience</h2>
             </div>
@@ -732,7 +769,7 @@
         </section>
 
         <!-- Projects -->
-        <section id="projects">
+        <section id="projects" style="padding-top: 3.5rem;">
             <div class="section-header">
                 <h2 class="section-title">Projects</h2>
             </div>
@@ -801,7 +838,7 @@
 
             <div class="contact-grid" style="grid-template-columns: 1fr;">
                 <div class="contact-content">
-                    <p style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--secondary-text);">Have a question or
+                    <p style="color: var(--secondary-text);">Have a question or
                         want to work together? Email me at: <span class="contact-email">loganbolton101@gmail.com</span></p>
                 </div>
                 <!-- <div class="contact-image">
