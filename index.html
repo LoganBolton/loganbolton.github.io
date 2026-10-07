@@ -64,7 +64,7 @@
         }
 
         .container {
-            max-width: 1045px;
+            max-width: 953px;
             margin: 0 auto;
             padding: 0 2rem;
         }
@@ -137,6 +137,13 @@
             display: block;
             margin: 0 auto;
             /* Center the smaller image */
+        }
+
+        /* on desktop the photo sits against the right edge of the column, so the page margins match */
+        @media (min-width: 769px) {
+            .hero-image img {
+                margin: 0 0 0 auto;
+            }
         }
 
         .hero-image img:hover {
@@ -398,11 +405,10 @@
 
         /* Paper thumbnails: centered and capped to a common box so that
            portrait and landscape figures read as the same size. */
-        #papers .project-image {
-            text-align: center;
-            padding-right: 3rem;
-            /* nudge left without shrinking the images the padding would clamp */
-            transform: translateX(-30px);
+        /* images sit against the right edge of the column, like the photo at the top */
+        #papers .project-image,
+        #projects .project-image {
+            text-align: right;
         }
 
         #papers .project-image img {
@@ -805,6 +811,24 @@
         <section id="projects" style="padding-top: 3.5rem;">
             <div class="section-header">
                 <h2 class="section-title">Projects</h2>
+            </div>
+
+            <div class="project-item">
+                <div class="project-content">
+                    <span class="meta-tag">Blog Post</span>
+                    <h3><a href="blog/videocolorbench/" target="_blank">Can VLMs Recognize Famous Videos From Just Their Colors?</a></h3>
+                    <p class="project-description">
+                        I made a benchmark where models guess a film or video from a barcode of its colors.
+                    </p>
+                    <div class="project-links">
+                        <a href="blog/videocolorbench/" target="_blank">Read Post</a>
+                    </div>
+                </div>
+                <div class="project-image">
+                    <a href="blog/videocolorbench/" target="_blank">
+                        <img src="./assets/images/videocolorbench.webp" alt="VideoColorBench" style="filter: none;" loading="lazy">
+                    </a>
+                </div>
             </div>
 
             <div class="project-item">

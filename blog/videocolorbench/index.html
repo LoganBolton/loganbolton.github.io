@@ -8,7 +8,7 @@
 <meta property="og:url" content="https://loganbolton.github.io/blog/videocolorbench/">
 <meta property="og:image" content="https://loganbolton.github.io/blog/videocolorbench/cover.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel=icon href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%9E%3C/text%3E%3C/svg%3E">
+<link rel=icon href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8E%A5%3C/text%3E%3C/svg%3E">
 <style>
   *{box-sizing:border-box}
   body{font-family:Georgia,'Times New Roman',Times,serif;font-variant-numeric:lining-nums;margin:0;color:#1a1a1a;line-height:1.5;background:#fff}
@@ -37,6 +37,20 @@
   .wall span{display:block;margin-top:4px;font-size:.8rem;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
   .card{position:relative;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-radius:16px;padding:2.2rem 2rem;max-width:560px;width:100%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.12)}
   .card .name{font-size:clamp(1.6rem,8vw,2.6rem);font-weight:800;letter-spacing:-.03em;color:#2c3e50;margin:0;border:0;padding:0}
+  /* soft blobs of color drifting across the title at different speeds, over a base rainbow */
+  .card .name{display:inline-block;color:transparent;-webkit-background-clip:text;background-clip:text;
+    background-image:radial-gradient(circle at center,#b5524a 0,#b5524a 30%,transparent 48%),radial-gradient(circle at center,#4a86a8 0,#4a86a8 30%,transparent 48%),
+      radial-gradient(circle at center,#c98a45 0,#c98a45 30%,transparent 48%),radial-gradient(circle at center,#8a5c9e 0,#8a5c9e 30%,transparent 48%),
+      linear-gradient(90deg,#8a5c9e 0,#b5524a 2.9%,#b5524a 11.4%,#c98a45 17.1%,#c98a45 25.7%,#b9a23f 31.4%,#b9a23f 40.0%,#5f9a68 45.7%,#5f9a68 54.3%,#4a86a8 60.0%,#4a86a8 68.6%,#5d68a8 74.3%,#5d68a8 82.9%,#8a5c9e 88.6%,#8a5c9e 97.1%,#b5524a 100%);
+    background-size:34% 260%,30% 260%,28% 260%,36% 260%,200% 100%;background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat;
+    animation:drift 11s ease-in-out infinite alternate,flow 16s linear infinite}
+  @keyframes drift{0%{background-position:0% 30%,100% 60%,40% 0%,70% 100%,var(--flow,0%) 0}
+    33%{background-position:70% 80%,20% 10%,100% 60%,10% 40%,var(--flow,0%) 0}
+    66%{background-position:30% 0%,60% 100%,0% 40%,100% 20%,var(--flow,0%) 0}
+    100%{background-position:100% 50%,0% 40%,60% 100%,40% 0%,var(--flow,0%) 0}}
+  @property --flow{syntax:'<percentage>';inherits:false;initial-value:0%}
+  @keyframes flow{to{--flow:200%}}
+  @media(prefers-reduced-motion:reduce){.card .name{animation:none}}
   .card .tag{font-size:clamp(.95rem,4.3vw,1.25rem);font-weight:600;margin:.4rem 0 0}
   .card{font-family:Helvetica,'Helvetica Neue',Arial,sans-serif}
   .card .by{margin:1rem 0 0;font-size:1rem}
@@ -101,7 +115,7 @@
   .ex .bar{width:100%;height:110px;border-radius:8px;display:block}
   .io{position:relative;border-radius:12px;padding:1.6rem 1rem 1rem;margin-top:1.4rem}
   .io-tag{position:absolute;top:-.7rem;left:.9rem;font:700 .7rem Helvetica,Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;padding:.2rem .6rem;border-radius:99px;color:#fff}
-  .io.in{background:#f0f0ef;border:1px dashed #c4c4c2}
+  .io.in{background:#f0f0ef;border:1px solid #d6d6d4}
   .io.in .io-tag{background:#777}
   .io.in .opt:not(.right){background:#fff}
   .io.in .bar{margin-bottom:.8rem}
@@ -144,7 +158,7 @@
 </section>
 
 <div class=wrap>
-<p>There's a fun trend going around the internet where an actor is given a barcode-like image of a movie they were in, where each line is the color of a single frame, and has to guess which movie it is. For example, in the image of 2001: A Space Odyssey below, there's a very distinctive block of deep red near the end, which is Dave shutting down HAL, followed by the bright colors of the Star Gate. I was curious how well vision language models can guess which movie an image comes from, so I built a benchmark around it.</p>
+<p>There's a fun trend going around the internet where actors try to guess one of their own movies from a barcode-like image. Each line in the image is the color of a single frame. For example, in the image of 2001: A Space Odyssey below, there's a very distinctive block of deep red near the end, which is Dave shutting down HAL, followed by the bright colors of the Star Gate. I was curious how well vision language models can guess which movie an image comes from, so I built a benchmark around it.</p>
 <!-- <p>I shrank every frame of a video down to its average color and lined the colors up from start to finish. That gives you a barcode. Then I showed models the barcode with ten titles and asked which one it was.</p>
 <p>There are 200 questions. Half are the most viewed YouTube videos and half are popular films. Guessing gets you 10%.</p> -->
 
