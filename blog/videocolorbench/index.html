@@ -18,6 +18,12 @@
   .sub{margin:.15rem 0 1rem;color:#666;font-style:italic}
   .note{color:#666;font-size:.86rem;margin:.2rem 0 .6rem}
   a{color:inherit}
+  .site-footer{border-top:1px solid #ddd;margin-top:3rem;padding:2rem 0 1rem;text-align:center;color:#555}
+  .contact-links{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem}
+  .contact-links a{color:#2c3e50;text-decoration:none;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:.25rem;text-align:center;white-space:nowrap}
+  .contact-links .ico{font-size:1.9rem;line-height:1;height:28px;display:flex;align-items:center;justify-content:center}
+  .contact-links svg,.contact-links img{height:28px;width:auto;display:block;object-fit:contain}
+  .contact-links a:hover{text-decoration:underline}
 
   /* splash: conveyor belts of barcodes with the title card on top */
   .hero{position:relative;min-height:100vh;background:#f1ede4;overflow:hidden;display:grid;place-items:center;padding:1rem}
@@ -36,8 +42,12 @@
   .card .by{margin:1rem 0 0;font-size:1rem}
   .card .by span{color:#666;font-size:.9rem}
 
-  .vids{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:1.2rem 0}
-  @media(max-width:620px){.vids{grid-template-columns:1fr}}
+  .vids{max-width:560px;margin:1.6rem auto}
+  .eg{margin:1.2rem 0}
+  .egbar{position:relative}
+  .egbar img{width:100%;height:110px;border-radius:8px;display:block}
+  .egbar span{position:absolute;left:85.5%;width:6.5%;top:-5px;bottom:-5px;border:2px solid #fff;outline:1px solid #000;border-radius:3px}
+  .eg figcaption{color:#666;font-size:.86rem;margin-top:.5rem;text-align:center}
   .vids video,.vids iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block;background:#000}
   .plot{width:100%;max-width:760px;display:block;margin:1.5rem auto}
   .scores{border-collapse:collapse;margin:1rem auto;font-size:.95rem;width:auto;max-width:100%}
@@ -120,16 +130,18 @@
 </section>
 
 <div class=wrap>
+<p>There's a fun trend going around the internet where an actor is given this barcode-like image where each line is a color of a single frame of a movie they are in and then they have to guess what movie it is. For example, in the image of The Lawnmower Man below, there's a very distinctive block of purple and blue near the end, which is the finale inside virtual reality. I was curious how well vision language models can guess what movie an image is, so I built a benchmark around it.</p>
+<!-- <p>I shrank every frame of a video down to its average color and lined the colors up from start to finish. That gives you a barcode. Then I showed models the barcode with ten titles and asked which one it was.</p>
+<p>There are 200 questions. Half are the most viewed YouTube videos and half are popular films. Guessing gets you 10%.</p> -->
 
-<p>I shrank every frame of a video down to its average color and lined the colors up from start to finish. That gives you a barcode. Then I showed models the barcode with ten titles and asked which one it was.</p>
-<p>There are 200 questions. Half are the most viewed YouTube videos and half are popular films. Guessing gets you 10%.</p>
+<figure class=eg><div class=egbar><img src="barcodes/films/the-lawnmower-man-1992.png" alt="Barcode of The Lawnmower Man (1992)"><span></span></div><figcaption>The Lawnmower Man (1992). The marked stretch is the virtual reality finale.</figcaption></figure>
 
 <div class=vids>
-  <video controls preload=metadata playsinline src="teaser.mp4"></video>
   <iframe src="https://www.youtube-nocookie.com/embed/jWL22Qr0ma4" title="YouTube video" loading=lazy allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <!-- <video controls preload=metadata playsinline src="teaser.mp4"></video> -->
 </div>
 
-<h2 id=viewer>Dataset construction</h2>
+<h2 id=viewer>Benchmark construction</h2>
 <div class=tabs id=tabs></div>
 <div class=view>
   <div class=thumb id=thumb></div>
@@ -138,26 +150,41 @@
     <div class=time id=time></div>
   </div>
 </div>
-<p>I took the 100 most viewed YouTube videos and 100 popular movies that I could easily download without doing anything illegal. For each video, I grabbed a frame every second and averaged it down to a single color.</p>
-<p>A benchmark pet peeve of mine is when the multiple choice answers are too easy and you can trivially infer the correct answer by process of elimination. So I made it 10 possible choices to really push the models.</p>
+<p>I took the 100 most viewed YouTube videos and 100 popular movies that I could easily download on the internet without torrents. For each video, I grabbed a frame every second and averaged it down to a single color. A benchmark pet peeve of mine is when the multiple choice answers are too easy and you can trivially infer the correct answer by process of elimination. So, I made it 10 possible choices to really try to challenge the models.</p>
+<p>I ran each model through their API on medium reasoning without any websearch tools and asked them to give their best answer. I was also curious about how agentic harnesses could improve their accuracy, so I did a separate run where the model was allowed to use tools and search the internet to answer each question.</p>
 
 <h2 id=examples>Example</h2>
 <div id=examples-list></div>
-<p><a href="questions.html">See all 200 questions and what each model answered</a></p>
 
 <h2 id=results>Results</h2>
-<p>Each model got one plain API call per question with only the image. Some also ran inside an agent harness that can inspect the image, run code and search the web.</p>
+<p>The baseline random guess accuracy for each question is 10%. <span class='ml logo claude'></span>Opus 5.5, <span class='ml logo openai'></span>GPT-6.1 Sol and <span class='ml logo openai'></span>GPT-6 Astra all got around 25% of the problems right, while the open source models <span class='ml logo qwen'></span>Qwen-3.5-397B, <span class='ml logo zai'></span>GLM-5.3-Flash and <span class='ml logo qwen'></span>Qwen-3.8-27B all got around 18% accuracy. Here's the full list of <a href="questions.html">input questions and the full model responses.</a></p>
+
 <!-- results table, switched off for now
 <table class=scores id=scores></table>
 <p class=note id=agent-note></p>
 -->
 <img class=plot src="results.png" alt="Accuracy of each model over all 200 questions, with its agent harness run marked on the same bar">
 <h3 id=harness>Adding Agent Harness</h3>
-<p class=sub>The same models, now able to inspect the image, run code and search the web.</p>
-<p>With the video downloaded the task is trivial. An agent can build the barcode itself and compare, which gets 100%. So I made it a little harder. Agents could look the videos up but not download them.</p>
+<!-- <p class=sub>The same models, now able to inspect the image, run code and search the web.</p> -->
+<!-- <p>With the video downloaded the task is trivial. An agent can build the barcode itself and compare, which gets 100%. So I made it a little harder. Agents could look the videos up but not download them.</p> -->
 <p>Oddly enough <span class='ml logo claude'></span>Opus 5.5 with the Claude Code harness was lazy and never ran a single web search. It looked at the image and guessed, so it scored about the same as the plain API call.</p>
 <p><span class='ml logo openai'></span>GPT-6.1 Sol with the Codex harness searched the web on nearly every question. It looked up written descriptions of each candidate, with queries like "Bad Romance music video scenes white red ending" that mostly landed on Wikipedia, Reddit and IMDb. For films it also searched for existing movie barcodes. This only helped a little because it was matching colors against words. It never looked at a single frame of the candidates.</p>
-<p><span class='ml logo zai'></span>GLM-5.3 Flash with the opencode harness went further. It pulled YouTube's preview thumbnails for each candidate and compared their colors to the barcode in code. That is why it did so much better.</p>
+<p><span class='ml logo zai'></span>GLM-5.3 Flash with the opencode harness went further. By pulling YouTube's preview thumbnails for each candidate and compared their colors to the barcode, it was able to get the highest accuracy by far.</p>
+<p>I also tried giving each agent access to the downloaded videos, but that turned out to be too easy and the models were able to hit 100% accuracy.</p>
+
+
+<h2>Summary</h2>
+<p>This is a pretty hard benchmark where I would bet that only true film buffs or terminally online Youtubers could get close to 100% accuracy. Given how niche these questions are, I really really doubt the models are explicitly trained on this task. It's interesting to see that for even this niche task, American frontier models still beat out the best Chinese open-source models. </p>
+
+<p>A link to the Github repo and the full dataset on huggingface can be found below.</p>
+
+<footer class=site-footer>
+    <div class=contact-links>
+        <a href='https://huggingface.co/datasets/loganbolton/VideoColorBench'><span class=ico><img src='huggingface_logo.png' alt='Hugging Face'></span><span>Dataset</span></a>
+        <a href='https://github.com/LoganBolton/VideoColorBench'><span class=ico><svg viewBox='0 0 24 24' aria-label='GitHub'><path fill='currentColor' d='M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.56v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.04 0 0 .97-.31 3.17 1.18.92-.26 1.9-.38 2.88-.39.98.01 1.96.13 2.88.39 2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.75.11 3.04.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.51 11.51 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z'/></svg></span><span>Project Repo</span></a>
+        <a href='https://x.com/septisum'><span class=ico><svg viewBox='0 0 24 24' aria-label='X'><path fill='currentColor' d='M18.9 1.5h3.3l-7.2 8.2 8.5 11.3h-6.6l-5.2-6.8-6 6.8H1.4l7.7-8.8L.9 1.5h6.8l4.7 6.2 5.5-6.2Zm-1.2 18.1h1.8L7.1 3.4H5.2l12.5 16.2Z'/></svg></span><span>Twitter</span></a>
+    </div>
+</footer>
 </div>
 
 <script>
