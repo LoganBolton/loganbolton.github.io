@@ -59,7 +59,7 @@ const svg = d => `<svg viewBox="0 0 24 24" aria-hidden=true><path fill-rule=even
 const tag = k => `<span class="tag ${tags[k].logo}" title="${esc(runs[k])}" aria-label="${esc(runs[k])}">${svg(LOGO[tags[k].logo])}${esc(tags[k].text)}</span>`;
 let only = 'all';
 function draw() {
-  const qs = questions.filter(q => only === 'all' || q.ds === only);
+  const qs = questions.filter(q => only === 'all' || q.ds === only).sort((a, b) => (a.ds === 'films') - (b.ds === 'films'));  // YouTube first
   const key = Object.keys(runs).map(k => `<span>${tag(k)} ${esc(runs[k])}</span>`).join('');
   document.getElementById('bar').innerHTML = [['all', 'All'], ['youtube', 'YouTube'], ['films', 'Films']].map(([k, t]) =>
     `<button data-k="${k}" class="${k === only ? 'on' : ''}">${t}</button>`).join('') + `<span class=score>${key}</span>`;
