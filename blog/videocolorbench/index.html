@@ -18,6 +18,15 @@
   .sub{margin:.15rem 0 1rem;color:#666;font-style:italic}
   .note{color:#666;font-size:.86rem;margin:.2rem 0 .6rem}
   a{color:inherit}
+  .citation{border-top:1px solid #ddd;margin-top:3rem;padding-top:1.2rem;color:#555}
+  .citation h2{margin-top:0;border:0;padding:0;color:#2c3e50}
+  .citation p{font-size:.9rem;margin:.4rem 0}
+  .cite-text{color:#444}
+  .cite-text a{color:#2c3e50}
+  .cite-wrap{position:relative;margin:.5rem 0}
+  pre.bibtex{background:#f6f8fa;border:1px solid #e3e6e8;border-radius:8px;padding:1rem;margin:0;max-height:none;overflow:auto;white-space:pre;font:.82rem/1.55 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:#1a1a1a}
+  .cite-copy{position:absolute;top:.55rem;right:.55rem;border:1px solid #d0d4d8;background:#fff;color:#2c3e50;border-radius:6px;padding:.28rem .7rem;font-size:.8rem;font-weight:600;cursor:pointer}
+  .cite-copy:hover{background:#eef2f5}
   .site-footer{border-top:1px solid #ddd;margin-top:3rem;padding:2rem 0 1rem;text-align:center;color:#555}
   .contact-links{display:flex;gap:1.6rem;justify-content:center;flex-wrap:wrap;margin-top:.9rem}
   .contact-links a{color:#2c3e50;text-decoration:none;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:.25rem;text-align:center;white-space:nowrap}
@@ -209,6 +218,23 @@
 <p>This is a pretty hard benchmark where I would bet that only true film buffs or terminally online Youtubers could get close to 100% accuracy. Given how niche these questions are, I really really doubt the models are explicitly trained on this task. It's interesting to see that even on a task this niche, American frontier models still beat out the best Chinese open-source models. </p>
 
 <p>A link to the GitHub repo and the full dataset on Hugging Face can be found below.</p>
+
+<section class=citation>
+    <h2>Citation</h2>
+    <p class=cite-text>Bolton, Logan. &ldquo;VideoColorBench: Can VLMs Recognize Famous Videos From Just Their Colors?&rdquo;. (Oct 2026). <a href='https://loganbolton.github.io/blog/videocolorbench/'>https://loganbolton.github.io/blog/videocolorbench/</a></p>
+    <p>Or use the BibTeX citation:</p>
+    <div class=cite-wrap>
+        <button class=cite-copy type=button onclick="var p=this.nextElementSibling,t=this;navigator.clipboard.writeText(p.innerText).then(function(){t.textContent='Copied!';setTimeout(function(){t.textContent='Copy';},1500);});">Copy</button>
+        <pre class=bibtex>@article{bolton2026videocolorbench,
+  title   = {VideoColorBench: Can VLMs Recognize Famous Videos From Just Their Colors?},
+  author  = {Bolton, Logan},
+  journal = {loganbolton.github.io},
+  year    = {2026},
+  month   = {October},
+  url     = {https://loganbolton.github.io/blog/videocolorbench/}
+}</pre>
+    </div>
+</section>
 
 <footer class=site-footer>
     <div class=contact-links>
