@@ -62,7 +62,8 @@
   .egshots small{display:block;text-align:center;color:#666;font-size:.8rem;margin-top:.3rem}
   .eg figcaption{color:#666;font-size:.86rem;margin-top:.7rem;text-align:center}
   .vids video,.vids iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:8px;display:block;background:#000}
-  .plot{width:100%;max-width:760px;display:block;margin:1.5rem auto}
+  .plot{width:100%;max-width:760px;display:block;margin:1.5rem auto 0}
+  .plotnote{max-width:760px;margin:.6rem auto 1.5rem;opacity:.75;padding-right:14%;text-align:right;color:#555;font:italic clamp(8px,1.4vw,10.7px) 'DejaVu Sans',Verdana,Geneva,sans-serif}
   .scores{border-collapse:collapse;margin:1rem auto;font-size:.95rem;width:auto;max-width:100%}
   .scores th{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:#888;font-weight:600;text-align:right;padding:.3rem .7rem;border-bottom:1px solid #ddd}
   .scores td{padding:.5rem .7rem;border-bottom:1px solid #eee;text-align:right;font-variant-numeric:tabular-nums}
@@ -143,7 +144,7 @@
 </section>
 
 <div class=wrap>
-<p>There's a fun trend going around the internet where an actor is given this barcode-like image where each line is a color of a single frame of a movie they are in and then they have to guess what movie it is. For example, in the image of 2001: A Space Odyssey below, there's a very distinctive block of deep red near the end, which is Dave shutting down HAL, followed by the bright colors of the Star Gate. I was curious how well vision language models can guess what movie an image is, so I built a benchmark around it.</p>
+<p>There's a fun trend going around the internet where an actor is given a barcode-like image of a movie they were in, where each line is the color of a single frame, and has to guess which movie it is. For example, in the image of 2001: A Space Odyssey below, there's a very distinctive block of deep red near the end, which is Dave shutting down HAL, followed by the bright colors of the Star Gate. I was curious how well vision language models can guess which movie an image comes from, so I built a benchmark around it.</p>
 <!-- <p>I shrank every frame of a video down to its average color and lined the colors up from start to finish. That gives you a barcode. Then I showed models the barcode with ten titles and asked which one it was.</p>
 <p>There are 200 questions. Half are the most viewed YouTube videos and half are popular films. Guessing gets you 10%.</p> -->
 
@@ -152,7 +153,7 @@
 <div class=vids>
   <iframe src="https://www.youtube-nocookie.com/embed/jWL22Qr0ma4" title="YouTube video" loading=lazy allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   <!-- <video controls preload=metadata playsinline src="teaser.mp4"></video> -->
-  <p>The trend that inspired this benchmark.</p>
+  <p>Example video of actors doing the same task</p>
 </div>
 
 <h2 id=viewer>Benchmark construction</h2>
@@ -164,8 +165,8 @@
     <div class=time id=time></div>
   </div>
 </div>
-<p>I took the 100 most viewed YouTube videos and 100 popular movies that I could easily download on the internet without torrents. For each video, I grabbed a frame every second and averaged it down to a single color. A benchmark pet peeve of mine is when the multiple choice answers are too easy and you can trivially infer the correct answer by process of elimination. So, I made it 10 possible choices to really try to challenge the models.</p>
-<p>I ran each model through their API on medium reasoning without any websearch tools and asked them to give their best answer. I was also curious about how agentic harnesses could improve their accuracy, so I did a separate run where the model was allowed to use tools and search the internet to answer each question.</p>
+<p>I took the 100 most viewed YouTube videos and 100 popular movies that I could easily download without torrenting. For each video, I grabbed a frame every second and averaged it down to a single color. A benchmark pet peeve of mine is when the multiple choice answers are too easy and you can trivially infer the correct answer by process of elimination. So I gave each question 10 possible choices to really challenge the models.</p>
+<p>I ran each model through its API on medium reasoning, without any web search tools, and asked them to give their best answer. I was also curious about whether agentic harnesses could improve their accuracy, so I did a separate run where the model was allowed to use tools and search the internet to answer each question.</p>
 
 <h2 id=examples>Example</h2>
 <div id=examples-list></div>
@@ -177,20 +178,21 @@
 <table class=scores id=scores></table>
 <p class=note id=agent-note></p>
 -->
-<img class=plot src="results.png" alt="Accuracy of each model over all 200 questions, with its agent harness run marked on the same bar">
+<img class=plot src="results.png?v=2" alt="Accuracy of each model over all 200 questions, with its agent harness run marked on the same bar">
+<p class=plotnote>*only 126/200 evaluated because I ran out of money mid run <span style="font-style:normal">😃</span></p>
 <h3 id=harness>Adding Agent Harness</h3>
 <!-- <p class=sub>The same models, now able to inspect the image, run code and search the web.</p> -->
 <!-- <p>With the video downloaded the task is trivial. An agent can build the barcode itself and compare, which gets 100%. So I made it a little harder. Agents could look the videos up but not download them.</p> -->
-<p>Oddly enough <span class='ml logo claude'></span>Opus 5.5 with the Claude Code harness was lazy and never ran a single web search. It looked at the image and guessed, so it scored about the same as the plain API call.</p>
+<p>Oddly enough, <span class='ml logo claude'></span>Opus 5.5 with the Claude Code harness was lazy and never ran a single web search. It looked at the image and guessed, so it scored about the same as the plain API call.</p>
 <p><span class='ml logo openai'></span>GPT-6.1 Sol with the Codex harness searched the web on nearly every question. It looked up written descriptions of each candidate, with queries like "Bad Romance music video scenes white red ending" that mostly landed on Wikipedia, Reddit and IMDb. For films it also searched for existing movie barcodes. This only helped a little because it was matching colors against words. It never looked at a single frame of the candidates.</p>
 <p><span class='ml logo zai'></span>GLM-5.3 Flash with the opencode harness went further. By pulling YouTube's preview thumbnails for each candidate and compared their colors to the barcode, it was able to get the highest accuracy by far.</p>
 <p>I also tried giving each agent access to the downloaded videos, but that turned out to be too easy and the models were able to hit 100% accuracy.</p>
 
 
 <h2>Summary</h2>
-<p>This is a pretty hard benchmark where I would bet that only true film buffs or terminally online Youtubers could get close to 100% accuracy. Given how niche these questions are, I really really doubt the models are explicitly trained on this task. It's interesting to see that for even this niche task, American frontier models still beat out the best Chinese open-source models. </p>
+<p>This is a pretty hard benchmark where I would bet that only true film buffs or terminally online Youtubers could get close to 100% accuracy. Given how niche these questions are, I really really doubt the models are explicitly trained on this task. It's interesting to see that even on a task this niche, American frontier models still beat out the best Chinese open-source models. </p>
 
-<p>A link to the Github repo and the full dataset on huggingface can be found below.</p>
+<p>A link to the GitHub repo and the full dataset on Hugging Face can be found below.</p>
 
 <footer class=site-footer>
     <div class=contact-links>
