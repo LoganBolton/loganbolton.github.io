@@ -26,7 +26,7 @@
   .contact-links a:hover{text-decoration:underline}
 
   /* splash: conveyor belts of barcodes with the title card on top */
-  .hero{position:relative;min-height:100vh;background:#f1ede4;overflow:hidden;display:grid;place-items:center;padding:1rem}
+  .hero{position:relative;min-height:100vh;background:#fff;overflow:hidden;display:grid;place-items:center;padding:1rem}
   .wall{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:18px;padding:14px 0}
   .belt{display:flex;gap:18px;width:max-content;animation:belt 140s linear infinite}
   .belt:nth-child(even){animation-direction:reverse}
@@ -35,7 +35,7 @@
   .wall figure{flex:0 0 320px;margin:0}
   .wall img{width:100%;height:120px;border-radius:6px;display:block}
   .wall span{display:block;margin-top:4px;font-size:.8rem;color:#555;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-  .card{position:relative;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-radius:16px;padding:2.2rem 2rem;max-width:560px;width:100%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.12)}
+  .card{position:relative;background:#fff;border-radius:16px;padding:2.2rem 2rem;max-width:560px;width:100%;text-align:center;box-shadow:0 10px 40px rgba(0,0,0,.12)}
   .card .name{font-size:clamp(1.6rem,8vw,2.6rem);font-weight:800;letter-spacing:-.03em;color:#2c3e50;margin:0;border:0;padding:0}
   /* soft blobs of color drifting across the title at different speeds, over a base rainbow */
   .card .name{display:inline-block;color:transparent;-webkit-background-clip:text;background-clip:text;
@@ -186,7 +186,7 @@
 <div id=examples-list></div>
 
 <h2 id=results>Results</h2>
-<p>The baseline random guess accuracy for each question is 10%. <span class='ml logo claude'></span>Opus 5.5, <span class='ml logo openai'></span>GPT-6.1 Sol and <span class='ml logo openai'></span>GPT-6 Astra all got around 25% of the problems right, while the open source models <span class='ml logo qwen'></span>Qwen-3.5-397B, <span class='ml logo zai'></span>GLM-5.3-Flash and <span class='ml logo qwen'></span>Qwen-3.8-27B all got around 18% accuracy. Here's the full list of <a href="questions.html">input questions and the full model responses.</a></p>
+<p>The baseline random guess accuracy for each question is 10%. <span class='ml logo claude'></span>Opus 5.5, <span class='ml logo openai'></span>GPT-6.1 Sol and <span class='ml logo openai'></span>GPT-6 Astra all got around 25% of the problems right, while the open source models <span class='ml logo qwen'></span>Qwen-3.5-397B, <span class='ml logo zai'></span>GLM-5.3-Flash and <span class='ml logo qwen'></span>Qwen-3.8-27B all got around 18% accuracy. Here's the full list of <a href="questions.html">input questions and the model responses.</a></p>
 
 <!-- results table, switched off for now
 <table class=scores id=scores></table>
