@@ -236,12 +236,12 @@
 <!-- <p>With the video downloaded the task is trivial. An agent can build the barcode itself and compare, which gets 100%. So I made it a little harder. Agents could look the videos up but not download them.</p> -->
 <p>Oddly enough, <span class='ml logo claude'></span>Opus 5.5 with the Claude Code harness was lazy and never ran a single web search. It looked at the image and guessed, so it scored about the same as the plain API call.</p>
 <p><span class='ml logo openai'></span>GPT-6.1 Sol with the Codex harness searched the web on nearly every question. It looked up written descriptions of each candidate, with queries like "Bad Romance music video scenes white red ending" that mostly landed on Wikipedia, Reddit and IMDb. For films it also searched for existing movie barcodes. This only helped a little because it was matching colors against words. It never looked at a single frame of the candidates.</p>
-<p><span class='ml logo zai'></span>GLM-5.3 Flash with the opencode harness went further. By pulling YouTube's preview thumbnails for each candidate and compared their colors to the barcode, it was able to get the highest accuracy by far.</p>
+<p><span class='ml logo zai'></span>GLM-5.3 Flash with the OpenCode harness went further. By pulling YouTube's preview thumbnails for each candidate and comparing their colors to the barcode, it was able to get the highest accuracy by far.</p>
 <p>I also tried giving each agent access to the downloaded videos, but that turned out to be too easy and the models were able to hit 100% accuracy.</p>
 
 
 <h2>Summary</h2>
-<p>This is a pretty hard benchmark where I would bet that only true film buffs or terminally online Youtubers could get close to 100% accuracy. Given how niche these questions are, I really really doubt the models are explicitly trained on this task. It's interesting to see that even on a task this niche, American frontier models still beat out the best Chinese open-source models. </p>
+<p>This is a pretty hard benchmark where I would bet that only true film buffs or terminally online YouTubers could get close to 100% accuracy. Given how niche these questions are, I really really doubt the models are explicitly trained on this task. It's interesting to see that even on a task this niche, American frontier models still beat out the best Chinese open-source models. </p>
 
 <p>A link to the GitHub repo and the full dataset on Hugging Face can be found below.</p>
 
@@ -284,7 +284,7 @@ const MCB = {details: {}, waiting: {},
     this.waiting[key].push(f);
   }};
 </script>
-<script src="data.js?v=4"></script>
+<script src="data.js?v=5"></script>
 <script>
 const {questions, viewer, quiz, runs, examples, table} = MCB.data;
 const src = q => `barcodes/${q.ds}/${q.id}.png`;
