@@ -434,6 +434,26 @@
             font-family: 'Playfair Display', serif;
             font-style: italic;
             color: var(--secondary-text);
+            text-align: center;
+        }
+
+        .exp-logo {
+            display: block;
+            margin: 0.75rem auto 0;
+            /* same box for every logo so wide and tall ones sit on the same center line */
+            height: 100px;
+            width: 170px;
+            object-fit: contain;
+        }
+
+        .exp-logo.exp-logo-wide {
+            width: 100%;
+            max-width: 200px;
+        }
+
+        /* corvid's text block is short, so a shorter box keeps it level with the row */
+        .exp-logo.exp-logo-raise {
+            height: 64px;
         }
 
         .exp-details h3 {
@@ -604,8 +624,8 @@
             </div>
             <div class="about-grid" style="grid-template-columns: 1fr;">
                 <div class="about-content">
-                    <p>- Graduated from Auburn University with a B.S. in Computer Science and a minor in Statistics. <br>
-                    - Currently an M.S. student in Computer Science at NYU Courant. <br>
+                    <p>- Graduated from Auburn University with a B.S. in Computer Science and a minor in Statistics <br>
+                    - Currently an M.S. student in Computer Science at NYU Courant <br>
                     - <b>I am currently looking for AI/ML related Summer 2027 internships. Feel free to reach out!</b></p>
                     <!-- M.S. in Computer Science at NYU Courant in Fall 2026. Experienced with Python, PyTorch, SQL, C#, JavaScript, and more.</p> -->
                     <div class="about-buttons">
@@ -762,7 +782,9 @@
             </div>
 
             <div class="experience-item">
-                <div class="exp-date">Summer 2026</div>
+                <div class="exp-date">Summer 2026
+                    <img class="exp-logo exp-logo-wide" src="assets/images/logos/lanl.svg" alt="Los Alamos National Laboratory logo">
+                </div>
                 <div class="exp-details">
                     <h3>Machine Learning Intern</h3>
                     <span class="company">Los Alamos National Laboratory - Los Alamos, NM</span>
@@ -774,11 +796,13 @@
             </div>
 
             <div class="experience-item">
-                <div class="exp-date">Summer 2024 - Spring 2026</div>
+                <div class="exp-date">Summer 2024 - Spring 2026
+                    <img class="exp-logo" src="assets/images/logos/auburn.png" alt="Auburn University logo">
+                </div>
                 <div class="exp-details">
                     <h3>Undergraduate AI Researcher</h3>
                     <span class="company">Dr. Anh Nguyen's Explainable AI Lab - Auburn University</span>
-                    <p>First-authored four papers on understanding and improving
+                    <p>First-authored four peer-reviewed papers on understanding and improving
                         multimodal LLMs/image-editing models.</p>
                         <!-- This work led to me becoming an Auburn Undergraduate Research Fellow and receiving an
                         honorable mention for the Outstanding Undergraduate Researcher Award from the Computing Research
@@ -788,20 +812,24 @@
 
 
             <div class="experience-item">
-                <div class="exp-date">Fall 2025 - Spring 2026</div>
+                <div class="exp-date">Fall 2025 - Spring 2026
+                    <img class="exp-logo" src="assets/images/logos/biomech.png" alt="Auburn Sport Biomechanics Lab logo">
+                </div>
                 <div class="exp-details">
                     <h3>Machine Learning Research Assistant</h3>
                     <span class="company">Dr. Wendi Weimar's Sport Biomechanics Lab - Auburn University</span>
-                    <p>Collaborated with an interdisciplinary team on a DoD-supported project studying how different movements affect the long-term health of canines. Trained pose estimation models to track joint positions across video data and analyzed kinematic patterns over time.</p>
+                    <p style="padding-bottom: 1lh;">Collaborated with an interdisciplinary team on a DoD-supported project studying how different movements affect the long-term health of canines. Trained pose estimation models to track joint positions across video data.</p>
                 </div>
             </div>
 
             <div class="experience-item">
-                <div class="exp-date">Summer 2025</div>
+                <div class="exp-date">Summer 2025
+                    <img class="exp-logo exp-logo-raise" src="assets/images/logos/corvid.png" alt="Corvid Technologies logo">
+                </div>
                 <div class="exp-details">
                     <h3>Machine Learning Intern</h3>
                     <span class="company">Corvid Technologies - Huntsville, AL</span>
-                    <p>Developed deep learning models to predict radar responses from 3D point clouds using roto-translation equivariant graph neural networks.</p>
+                    <p>Developed deep learning models to predict radar responses from 3D point clouds using roto-translational equivariant graph neural networks.</p>
                 </div>
             </div>
 
